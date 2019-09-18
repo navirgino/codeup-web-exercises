@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <style>
+        #payment , #payment2 , #payment3 , #payment4 {
+            width: 100px;
+        }
+
+        #creditCard1 , #creditCard2 , #creditCard3 , #creditCard4 {
+            width: 50px;
+        }
+
+        #expiry , #cvv {
+            width: 60px;
+        }
+
+        #name_on_card {
+            width: 400px;
+        }
+
+        #cvv_img {
+
+           width: 275px;
+           height: 150px;
+        }
+        #address {
+            width: 400px;
+        }
+
+        #shopping_cart {
+            width: 200px;
+            height: 100px;
+            background-color: blanchedalmond;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <h1><p style="font-family: Georgia">Checkout</p></h1>
+    <img src="img/shopping_cart.png" id="shopping_cart" name="shopping_cart">
+</div>
+    <hr>
+    <form method="POST" action="https://request-inspector.glitch.me/">
+
+            <img src="img/mastercard.png" id= "payment" alt="MasterCard">
+
+            <img src="img/visa.png" id= "payment2" alt="Visa">
+
+            <img src="img/amex.png" id= "payment3" alt="American Express">
+
+            <img src="img/pp.png" id= "payment4" alt="PayPal">
+
+        <label><br><br><strong>Please choose a payment method:</strong>
+            <select name="payment_type">
+
+                <option value="mastercard">Mastercard</option>
+                <option value="visa">Visa</option>
+                <option value="american_express">American Express</option>
+                <option value="pay_pal">PayPal</option>
+
+            </select>
+        </label>
+
+        <br>
+        <br>
+
+            <label><strong>Credit Card Number</strong>
+
+                <input class="inputCard" type="text" name="creditCard1" id="creditCard1">
+                -
+                <input class="inputCard" type="text" name="creditCard2" id="creditCard2">
+                -
+                <input class="inputCard" type="text" name="creditCard3" id="creditCard3">
+                -
+                <input class="inputCard" type="text" name="creditCard4" id="creditCard4">
+
+            <br>
+
+            </label>
+            <strong>Card Expiry:</strong>
+            <input class="inputCard" type="text" name="expiry" id="expiry">
+
+            <lable><strong>CVV:</strong>
+                <input class="cvv" type="password" name="cvv" id="cvv">
+                <br>
+                <img src="img/cvv.jpeg" id= "cvv_img" alt="CVV_EXAMPLE">
+            </label>
+
+        <br>
+
+        <label><strong>Name on card:</strong>
+            <input id="name_on_card" type="text" name="name_on_card">
+        </label>
+
+         <br>
+
+        <label><strong>Billing Address:</strong><br>
+            <strong>Name:</strong>
+            <input id="name" type="text" name="name"><br>
+            <strong>Street, State, ZIP:</strong>
+            <input id="address" type="text" name="address">
+
+    </form>
+</body>
+</html>
