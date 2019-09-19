@@ -20,12 +20,15 @@
 
 
     </script>
+
+
     <script>
         function area(a , b , c) {
-            var area = (a + b + c) / 2;
+            var half = (a+b+c)/2;
+            var area = Math.sqrt(half * (half - a) *  (half - b) * (half - c));
             return area;
         }
-        console.log(area(3 , 4 , 6));
+        console.log(area(5 , 6 , 7));
     </script>
 
 </body>
