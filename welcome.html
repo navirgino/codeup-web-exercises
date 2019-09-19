@@ -5,23 +5,38 @@
     <meta charset="UTF-8">
     <title>Veridian Dynamics</title>
     <link rel="stylesheet" href="css/style.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Turret+Road&display=swap" rel="stylesheet">
 </head>
-<body>
-    <h1 class="fancy-header">Welcome to Veridian Dynamics</h1>
+
+<hr>
+
+<body id="bg">
+
     <a id="top"></a>
-    <p>
+    <div class="loader"></div>
+
+    <h1>
+        <img id="banner" class="resize" src="img/veridian_logo.png"
+             alt="Veridian Dynamics">
+    </h1>
+
+    <h1 class="fancy-header">Welcome to Veridian Dynamics</h1>
+
+    <p id="title_p">
         At Veridian Dynamics, <strong>we</strong> solve <em>your</em> problems
         with <em><strong>technology.</strong></em>
     </p>
 
     <h1>Core Values</h1>
+
     <ul>
         <li>Competence</li>
         <li>Involvement</li>
         <li>Technology</li>
     </ul>
+
     <h1>Our Process</h1>
+
     <ol>
         <li>Plan</li>
         <li>Evaluate</li>
@@ -33,16 +48,21 @@
         <li>Increase Success by 20%</li>
         <li>Increase Business by 30%</li>
     </ul>
+
     <hr>
+
     <h1>Company Vision</h1>
         <div id="cover">
-            <img alt= "Laptop" src="img/laptop.jpeg" style="width:300px; height:200px;">
-            <img alt= "Meeting" src="img/meeting.jpeg" style="width:300px; height:200px;">
-            <br>
-            <img alt="Sunset Man" src="img/sunset-man.jpeg" style="width:300px; height:200px;">
-            <img alt="Ocean Sunset" src="img/sunset-ocean.jpg" style="width:300px; height:200px;">
+            <img alt= "Laptop" src="img/laptop.jpeg" class="zoom" style="width:300px; height:200px;">
+            <img alt= "Meeting" src="img/meeting.jpeg" class="zoom" style="width:300px; height:200px;">
         </div>
-    <table>
+        <br>
+        <div id="img">
+            <img alt="Sunset Man" src="img/sunset-man.jpeg" class="zoom" style="width:300px; height:200px;">
+            <img alt="Ocean Sunset" src="img/sunset-ocean.jpg" class="zoom" style="width:300px; height:200px;">
+        </div>
+            <hr>
+    <table id="table">
         <tr>
             <th>Plan</th>
             <th>Price</th>
@@ -65,8 +85,13 @@
         </tr>
     </table>
 
+    <hr>
+
     <p><em>All products come with our quality guarantee</em>&trade; .</p>
 
+    <img src="img/mech_veridian.jpg" id="footer" class="resize" alt="Veridian Quote">
 </body>
+
 <a href="#top">Go to the top of page</a>
+
 </html>
