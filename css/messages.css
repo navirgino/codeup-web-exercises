@@ -7,11 +7,11 @@ body, html {
 }
 
 .message {
-    border-radius: 4px;
-    margin: 5px;
-    padding: 1px;
+    border-radius: 3px;
+    margin: .4em auto;
+    padding: .75em;
     border: 1px solid lightgrey;
-    height: 30px;
+    width: 80%;
 }
 
 .message-info {
