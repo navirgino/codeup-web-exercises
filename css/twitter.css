@@ -72,6 +72,8 @@ li {
 .profile-items {
     padding: 0;
     list-style: none;
+    float: left;
+    clear: left;
 }
 
 .profile-entry {
@@ -81,6 +83,7 @@ li {
     width: calc(25% - 16px);
     margin: 0 .5em;
     float: left;
+
 
 }
 .timeline {
