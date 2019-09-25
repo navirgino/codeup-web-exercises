@@ -11,6 +11,8 @@ body {
 nav {
     display: inline-block;
     width: 100%;
+    justify-content: space-between;
+    position: fixed;
 
 }
 nav li {
