@@ -54,6 +54,7 @@ body {
     display: flex;
     justify-content: center;
     /* flex container */
+    align-items: center;
 }
 .flex-form {
     display: flex;
@@ -61,7 +62,6 @@ body {
     /* flex items */
 }
 .destination {
-    display: flex;
     flex-basis: 30%;
 
     /* bigger item */
