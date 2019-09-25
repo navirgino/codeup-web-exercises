@@ -53,17 +53,16 @@ body {
 .cover {
     display: flex;
     justify-content: center;
-    margin: auto;
-
     /* flex container */
 }
 .flex-form {
     display: flex;
-    align-items: center;
-    margin: auto;
-
+    margin:auto;
     /* flex items */
 }
 .destination {
+    display: flex;
+    flex-basis: 30%;
+
     /* bigger item */
 }
