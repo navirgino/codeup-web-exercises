@@ -1,4 +1,64 @@
-html {
-    box-sizing: border-box
+* {
+    box-sizing: border-box;
+
 }
+
+body {
+    margin: 0;
+}
+
+
+nav {
+    display: inline-block;
+    width: 100%;
+
+}
+nav li {
+    margin: 2em .5em;
+
+}
+
+ul  {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Work Sans', sans-serif;
+    background-color: lightgrey;
+    list-style: none;
+    margin: auto;
+    height: 80px;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+
+nav a:link {
+    color: black;
+}
+
+
+nav a:hover {
+    color: blue;
+}
+
+li:nth-child(6) {
+    margin-left: auto;
+}
+
+li:nth-child(5) {
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 0;
+}
+
+
+#logo {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    padding-bottom: .2em;
+    padding-top: .2em;
+}
+
 
