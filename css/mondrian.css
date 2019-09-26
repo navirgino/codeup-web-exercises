@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    text-align: center;
+}
+main {
+    margin-top: 2em;
+    background: white;
+    display: inline-grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    height: 500px;
+    width: 500px;
+
+}
+main div {
+    font-size: 2em;
+    color: white;
+    border: 4px solid black;
+    background-color: white;
+
+}
+.blue {
+    background-color: #30447b;
+}
+.red {
+    background-color: #DC1C22
+}
+.yellow {
+    background-color: #FCCC0B;
+}
+
+#one {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#two {
+    grid-column-start: 3;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+#three {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 6;
+
+}
+
+#four {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 8;
+}
+
+#five {
+    grid-column-start: 5;
+    grid-column-end: -1;
+    grid-row-start: 4;
+    grid-row-end: 6;
+}
+
+#six {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 6;
+    grid-row-end: 8;
+}
+
+#seven {
+    grid-column-start: 5;
+    grid-column-end: -1;
+    grid-row-start: 6;
+    grid-row-end: 8;
+}
+
+#eight {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 8;
+    grid-row-end: 8;
+}
+
+#nine {
+    grid-column-start: 3;
+    grid-column-end: -1;
+    grid-row-start: 8;
+    grid-row-end: 8;
+}
