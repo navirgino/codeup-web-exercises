@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout 1</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: repeat(5, 100px);
+            grid-template-rows: repeat(5, 100px);
+            width: 100%;
+            height: 100%;
+
+            grid-gap: .5em;
+        }
+        header , footer, nav , article , nav , div {
+            padding: 2em;
+            background-color: gold;
+
+        }
+        .header {
+
+            grid-area: 1 / 1 / 2 / 8;
+        }
+        /*rowstart / columnstart / rowend / columnend */
+        .footer {
+            grid-area: 6 / 2 / 8 / 8;
+        }
+
+        .nav {
+            grid-area: 2 / 1 / 8 / 2;
+        }
+
+        .article {
+            grid-area: 2 / 2 / 6 / 7;
+        }
+
+        .ads {
+            grid-area: 2 / 7 / 6 / 8;
+        }
+    </style>
+</head>
+<body>
+<div class = "header">Header</div>
+<div class = "footer">Footer</div>
+<div class = "article">Article</div>
+<div class = "ads">Ads</div>
+<div class = "footer">Footer</div>
+<div class = "nav">Nav</div>
+
+</body>
+</html>
