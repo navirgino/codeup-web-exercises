@@ -1,51 +1,176 @@
 body {
     display: grid;
-    grid-template-rows: 1fr 30% 30% 30% 100px 50px;
-    grid-template-columns: 1fr 50% 1.5fr;
-
+    grid-template-rows: 1fr repeat(3 , 3fr) 40px 1fr .5fr;
+    grid-template-columns: 1fr 6fr 2fr;
+    font-family: Roboto, sans-serif;
+    margin: auto;
 }
 .container {
-    margin: auto;
-    height: 100%;
     width: 100%;
+    height: 100%;
 }
-.header {
+.header  {
     display: grid;
-    color: white;
-    background-color: black;
     grid-area: 1 / 1 / 2 / -1;
-}
+    background-color: black;
+    line-height: 3em;
+ }
 
-.header li , ul {
+.header li {
     list-style-type: none;
-    display: inline-flex;
+    display: inline-block;
+    justify-content: start;
     flex-direction: row;
-    align-content: flex-start;
 }
+.header a {
+     color: white;
+     text-decoration: none;
+ }
 
+.header a:hover {
+    color: grey;
+}
 .nav {
-    background-color: grey;
-    grid-area: 2 / 1 / -2 / 2;
-}
+    background-color: lightgrey;
+    grid-area: 2 / 1 / 6 / 2;
 
-.nav li , ul {
+}
+.nav li {
     list-style: none;
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    line-height: 2em;
+}
+.nav a {
+    color: black;
+    text-decoration: none;
+}
+.nav a:hover {
+    color: white;
+}
+.article1 {
+    display: grid;
+    grid-area: 2 / 2 / 3 / 3;
+    padding: 2em;
+}
+
+.article2 {
+   display: grid;
+    grid-area: 3 / 2 / 4 / 3;
+    padding: 2em;
+}
+
+.article3 {
+    display: grid;
+    grid-area: 4 / 2 / 5 / 3;
+    padding: 2em;
+}
+
+
+
+h2 {
+    color: #80BAB4;
+}
+
+.ad_1 {
+    display: grid;
+    grid-area: 2 / 3 / 3 / 4;
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.ad_1_box_1 {
+    height: 70px;
+    width:  200px;
+    border: 2px solid darkgrey;
+}
+
+.ad_1_box_2 {
+    height: 100px;
+    width: 200px;
+    border: 2px solid darkgrey;
+}
+
+.ad_2 {
+    display: grid;
+    grid-area: 3 / 3 / 4 / 4;
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.ad_2_box_1 {
+    height: 70px;
+    width: 200px;
+    border: 2px solid darkgrey;
+}
+.ad_2_box_2 {
+    height: 100px;
+    width: 200px;
+    border: 2px solid darkgrey;
+}
+.ad_3 {
+    display: grid;
+    grid-area: 4 / 3 / 5 / 4;
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.ad_3_box_1 {
+    height: 70px;
+    width: 200px;
+    border: 2px solid darkgrey;
+}
+
+.ad_3_box_2 {
+    height: 100px;
+    width: 200px;
+    border: 2px solid darkgrey;
+}
+
+.pg_num {
+    display: grid;
+    grid-area: 5 / 2 / 6 / 3;
+    padding-left: 50%;
+    font-size: 20px;
+
+}
+.pg_num button {
+    border: none;
+    background-color: white;
 
 }
 
-.ad {
-    display: inline-grid;
-    grid-area: 2 / 3 / -1 / 4;
+.pg_num ul li {
+    list-style: none;
+    display: inline-block;
+    flex-direction: row;
+}
+
+.pg_num a {
+    color: black;
+    text-decoration: none;
+}
+
+.pg_num a:hover {
+    color: darkgrey;
 }
 
 .footer {
+    color: white;
     background-color: gray;
-    grid-area: 5 / 1 / 7 / -1;
+    grid-area: 6 / 1 / 7 / -1;
+    line-height: 2em;
 }
-
 .power {
+    color: white;
     background-color: black;
     grid-area: 7 / 1 / -2 / -1;
+}
+
+.power_btn {
+    color: white;
 }
