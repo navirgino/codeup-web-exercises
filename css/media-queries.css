@@ -1,8 +1,11 @@
 /* Small devices (tablets, 768px and up) */
-@media screen and (max-width:768px) {
+@media screen and (max-width:768px){
+
+
     body {
         font-family: "Ariel", Helvetica, sans-serif;
     }
+
     div.alert-info{
         text-align: center;
         background-color: #cbfdfd;
@@ -11,29 +14,34 @@
         margin: 10px;
 
     }
+
     a {
         text-decoration: none;
         color: black;
+
     }
 
     h1{
         text-align: center;
     }
+
     ul{
         list-style: none;
         margin-right: 40px;
-
     }
+
     li{
         background-color: lightgrey;
         text-align: center;
         padding: 1em;
         margin: 10px;
     }
+
     .nav-links a {
         text-decoration: underline;
         color: blue;
     }
+
     img {
         display: block;
         height: 224px;
@@ -42,68 +50,91 @@
         margin: auto;
     }
 
+
 }
 
-
-/* Medium devices (desktops, 992px and up) */
+/* Medium device */
 @media screen and (min-width:992px) {
+
     div.alert-info {
         display: none;
+
+    }
+
+    body {
+        font-family: "Ariel", Helvetica, sans-serif;
     }
 
     ul {
+
         list-style: none;
-        position: fixed;
+        position: absolute;
+       /* top: 25px;*/
+        top: 3%;
         bottom: 95%;
         left: 70%;
         display: flex;
         margin: 0;
 
     }
+
     li {
         display: inline-block;
        padding: 10px;
+    }
+
+    .header-img {
+        background-color: lightgrey;
+        border: 3px solid black;
     }
     img {
         display: block;
         position: center;
         height: 385px;
-        width: 890px;
+        width: 100%;
         margin: auto;
     }
-
 
     .main {
         width: 50%;
         display: inline-block;
-
         float: left;
+        margin-top: 1em;
+        border-left: 5px solid red;
     }
     .sub-section {
         width: 35%;
         display: inline-block;
-
         float: right;
+        margin-top: 1em;
+        border-left: 5px solid red;
+
     }
 
-    footer {
+    p , h2{
+        font-family: "Ariel", Helvetica, sans-serif;
+        margin-left: 1em;
+    }
+
+    footer{
+        display: flex;
+        align-content: baseline;
+        padding-top: 5em;
         clear: left;
     }
 
-
-
-
-}
-
-/* Large devices (large desktops, 1200px and up) */
-/*
-@media screen and (min-width:1200px) {
-    body {
-        text-align: center;
+    .websites {
+        float: right;
+        padding: 1em;
+        font-size: large;
 
     }
+
+
 }
-*/
+
+
+
 
 
 
