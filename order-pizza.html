@@ -8,35 +8,33 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+          integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
 
+
+<!------------------------------->
 
 
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!--NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <a class="navbar-brand" href="#">Pizza World</a>
-
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
         <span class="navbar-toggler-icon"></span>
-
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-
             <li class="nav-item active">
                 <a class="nav-link" href="#">Order Online<span class="sr-only">(current)</span></a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="#">Menu</a>
             </li>
-
             <li class="search-zip">
                <!-- <div class="zip-code-bar">
                     <input type="search" id="zip-code" placeholder="Zip code" aria-label="Zip code">
@@ -55,42 +53,372 @@
                     <button class="form-control mr-sm-2" type="submit">Search stores near you!</button>
                 </form>
             </li>
-            <!--<li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-
-            </li>-->
         </ul>
 
         <form class="sign-up">
-
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><span class="fas fa-user"></span> Sign Up</a>
-
-
         </form>
-
-
-
-
-        <!--<form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>-->
     </div>
-</nav>
+    </nav>
+<!--NAVBAR END-->
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+<!------------------------------->
+
+<!--JUMBOTRON-->
+<div class="jumbotron jumbotron-fluid"
+     style="background-image:
+     url(https://java.codeup.com/examples/bootstrap/pizza.png);
+     background-size: 100%"> <!--Pizza img-->
+    <div class="container">
+        <h1 class="display-4">Welcome to Pizza World!</h1>
+    </div>
+</div>
+<!--JUMBOTRON END-->
+
+<!------------------------------->
+
+
+
+
+
+<!--TABS && H2-->
+<h2>Build your own Pizza!</h2>
+
+<!--nav approach-->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+<!--size and crust tab start-->
+        <a href="#" class="nav-link active"><span id="tab_one">1</span> Size and crust</a>
+
+        <!--card body-->
+        <div class="card">
+            <div  class="p-3 mb-2 bg-primary text-white">Choose size and crust</div>
+            <div class="card-body">
+                <ul></ul>
+
+                <!--hand tossed card 1-->
+                <div class="card" style="width: 100%">
+                    <div class="card-header">Hand Tossed</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            Garlic seasoned crust with a rich, buttery taste.</li>
+                        <li class="list-group-item">
+                            <input class="form-check-input position-static" type="radio"
+                                   name="blankRadio" id="blankRadio_one" value="option1" aria-label="...">Small(10")</li>
+                        <li class="list-group-item">
+                            <input class="form-check-input position-static" type="radio"
+                                   name="blankRadio" id="blankRadio_two" value="option1" aria-label="...">Medium(12")</li>
+                    </ul>
+                </div>
+                <!--hand tossed card 1 end-->
+
+
+                <!--crispy thin card 2-->
+                <div class="card">
+                    <div class="card-header">Crispy Thin</div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                Thin enough for optimum crispy to crunchy ratio</li>
+
+                            <li class="list-group-item">
+                                <input class="form-check-input position-static" type="radio"
+                                       name="blankRadio" id="blankRadio_one" value="option1" aria-label="...">Medium (12")</li>
+                            <li class="list-group-item">
+                                <input class="form-check-input position-static" type="radio"
+                                       name="blankRadio" id="blankRadio_two" value="option1" aria-label="...">Large(14")</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--crispy thin card end 2-->
+
+            </div>
+        </div>
+        <!--card body end-->
+    </li>
+<!--size and crust tab end-->
+
+<!--choose cheese and sauce-->
+    <li class="nav-item">
+        <a class="nav-link" href="#" role="tab" aria-controls="cheese_n_sauce">
+            <span id="tab_two">2</span> Choose Cheese and Sauce</a>
+
+
+        <!--card body-->
+        <div class="card">
+            <div class="card">
+                <div  class="p-3 mb-2 bg-primary text-white">Choose size and crust</div>
+            <!--cheese and sauce card body-->
+                <div class="card-body">
+
+                    <div class="card">
+                        <!--- cheese card 1 start --->
+                        <div class="card-header">
+                            Cheese
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">How much?</h5>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                    Left-aligned but right aligned when large screen
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-lg-right">
+                                    <button class="dropdown-item" type="button">Action</button>
+                                    <button class="dropdown-item" type="button">Another action</button>
+                                    <button class="dropdown-item" type="button">Something else here</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--cheese card 1 end-->
+
+                        <!--sauce card 2 start-->
+                        <div class="card">
+                            <div class="card-header">
+                                Sauce
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">What type?</h5>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                        Left-aligned but right aligned when large screen
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-lg-right">
+                                        <button class="dropdown-item" type="button">Action</button>
+                                        <button class="dropdown-item" type="button">Another action</button>
+                                        <button class="dropdown-item" type="button">Something else here</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-body">
+                                        <h5 class="card-title">How much?</h5>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                                Left-aligned but right aligned when large screen
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-lg-right">
+                                                <button class="dropdown-item" type="button">Action</button>
+                                                <button class="dropdown-item" type="button">Another action</button>
+                                                <button class="dropdown-item" type="button">Something else here</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        <!--sauce card 2 end-->
+                            </div>
+                        </div>
+                    </div>
+            <!--card body end-->
+        </div>
+
+
+
+
+
+
+
+
+        <!--cheese and sauce body-->
+
+
+
+
+
+        </div></li>
+<!--choose cheese and sauce end-->
+
+
+
+<!--choose toppings start tab-->
+    <li class="nav-item">
+        <a class="nav-link" href="#" role="tab" aria-controls="choose_toppings">
+            <span id="tab_three">3</span> Choose Toppings</a>
+    </li>
+<!--choose toppings end tab-->
+</ul>
+
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link"><span id="tab_two">2</span> Choose Cheese and Sauce</a>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link"><span id="tab_three">3</span> Choose Toppings</a>
+    </li>
+</ul>
+
+
+<!--------------------------------->
+    <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs" id="pizza-list" role="tablist">
+                <li class="nav-item">
+<!--size and crust tab start-->
+
+
+                <a class="nav-link active" href="#" role="tab" aria-controls="size_n_crust">
+                    <span id="tab_one">1</span> Size and crust</a>
+
+<!--card body start-->
+
+
+                    <div class="card">
+                        <div  class="p-3 mb-2 bg-primary text-white">Choose size and crust</div>
+                        <div class="card-body">
+
+
+ <!--hand tossed card-->
+
+
+                                <div class="card" style="width: 100%">
+                                    <div class="card-header">Hand Tossed</div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            Garlic sesoned cust with a rich, buttery taste.</li>
+                                        <li class="list-group-item">
+                                            Small(10")</li>
+                                        <li class="list-group-item">
+                                            Medium(12")</li>
+                                    </ul>
+                                </div>
+
+<!--crispy thin card-->
+
+                            <div class="card">
+                                <div class="card-header">Crispy Thin</div>
+                                <div class="card-body">
+
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                Thin enough for optimum crispy to crunchy ratio</li>
+                                            <li class="list-group-item">
+                                                Medium (12")</li>
+                                            <li class="list-group-item">
+                                                Large(14")</li>
+                                        </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#" role="tab" aria-controls="cheese_n_sauce">
+                    <span id="tab_two">2</span> Choose Cheese and Sauce</a>
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#" role="tab" aria-controls="choose_toppings">
+                    <span id="tab_three">3</span> Choose Toppings</a>
+            </li>
+        </ul>
+</div>
+<div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+</div>
+</div>
+
+
+
+<!--<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+            &lt;!&ndash;size n crusty boi&ndash;&gt;
+            <span id="tab_one">1</span> Size and Crust
+        </a>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="card">
+                    <div class="card" style="width: 18rem;">
+                        <ul class="list-group list-group-flush"> &lt;!&ndash;id="crusty"&ndash;&gt;
+                            <li class="list-group-item">Hand Tossed</li>
+                            <li class="list-group-item">Garlic Seasoned crust with a rich, buttery taste.</li>
+
+                            &lt;!&ndash;SMALL RADIO START&ndash;&gt;
+                            <li class="list-group-item" id="small_button">
+                                &lt;!&ndash; first radio button for small&ndash;&gt;
+                                <div class="form-check">
+                                <input class="form-check-input position-static" type="radio"
+                                       name="blankRadio" id="blankRadio_one" value="option1" aria-label="...">
+                            </div>
+                                <span id="small_word">Small (10")</span></li>
+                                &lt;!&ndash;SMALL RADIO END&ndash;&gt;
+                                &lt;!&ndash;MEDIUM RADIO START&ndash;&gt;
+                            <li class="list-group-item" id="medium_button">
+                                &lt;!&ndash;second radio button for medium&ndash;&gt;
+                                <div class="form-check">
+                                    <input class="form-check-input position-static" type="radio"
+                                           name="blankRadio" id="blankRadio_two" value="option1" aria-label="...">
+                                </div>
+                                <span id="medium_word">Medium (12")</span></li>
+                            &lt;!&ndash;MEDIUM RADIO END&ndash;&gt;
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Active</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+
+
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+            <span id="tab_two">2</span> Cheese and Sauce</a>
+
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">
+            <span id="tab_three">3</span> Toppings</a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+</div>-->
+
+
+
+
+<!--SCRIPTS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
         integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
 
-</script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
-
-</script>
-
+    </script>
+<!--SCRIPT END-->
 
 <!-- Your custom JS goes here -->
 </body>
