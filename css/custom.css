@@ -1,14 +1,18 @@
-.jumbotron {
+header {
+    padding: 1em;
+    margin: 0;
+}
 
+.jumbotron {
     width: 100%;
-    height: 100%;
+
 }
 
 .jumbotron h1 {
+
     opacity: 0.6;
     background-color: #e9ecef;
 }
-
 
 @media screen and (max-width: 768px) {
     .jumbotron {
@@ -47,5 +51,14 @@
     width: 1.6em;
     height: 1.6em;
     text-align: center;
+}
+
+#cheesy_dropdown_menu {
+    background-color: #FFFFFF;
+    color: black;
+}
+
+.btn {
+    float: right;
 }
 

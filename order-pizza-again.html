@@ -59,6 +59,7 @@
 </nav>
 <!--NAVBAR END-->
 <!------------------------------->
+
 <!--JUMBOTRON-->
 <div class="jumbotron jumbotron-fluid"
      style="background-image:
@@ -78,13 +79,16 @@
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-                <a href="#size" class="nav-link active"><span id="tab_one">1</span> Size and crust</a>
+                <a class="nav-link active" role="tab" data-toggle="tab">
+                    <span id="tab_one">1</span> Size and crust</a>
             </li>
             <li class="nav-item">
-                <a href="#cheese" class="nav-link active"><span id="tab_one">2</span> Cheese and Sauce</a>
+                <a href="#cheese" class="nav-link active" role="tab" data-toggle="tab">
+                    <span id="tab_two">2</span> Cheese and Sauce</a>
             </li>
             <li class="nav-item">
-                <a href="#toppings" class="nav-link active"><span id="tab_one">3</span> Toppings</a>
+                <a href="#toppings" class="nav-link active" role="tab" data-toggle="tab">
+                    <span id="tab_three">3</span> Toppings</a>
             </li>
         </ul>
     </div>
@@ -98,36 +102,33 @@
 <!------------------------------->
 
 <!--size and crust body start-->
-<div class="card">
-    <div  class="p-3 mb-2 bg-primary text-white">Choose size and crust</div>
-    <div class="card-body">
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="size">
+        <div class="card">
+            <div  class="p-3 mb-2 bg-primary text-white">Choose size and crust</div>
+                <div class="card-body">
 
         <!--hand tossed card 1-->
+                    <div class="card">
+                    <div class="card-header">Hand Tossed</div>
+                        <div class="card">
+                            <div class="card-body">
+                                <ul>
+                                    <li>Garlic sesoned cust with a rich, buttery taste.</li>
 
-        <div class="card">
-            <div class="card-header">Hand Tossed</div>
-            <ul class="list-group list-group-flush" id="size">
-                <li class="list-group-item">
-                    Garlic sesoned cust with a rich, buttery taste.</li>
-                <li class="list-group-item">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Small(10")
-                        </label>
+                                    <li><input class="form-check-input" type="radio" name="exampleRadios" value="option2">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Small(10")
+                                        </label></li>
+                                    <li> <input class="form-check-input" type="radio" name="exampleRadios"value="option2">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                        Medium(12")
+                                        </label></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-
-                </li>
-                <li class="list-group-item">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Medium(12")
-                        </label>
-                    </div>
-                </li>
-            </ul>
-        </div>
+                </div>
         <!--hand tossed card end 1-->
         <!--crispy thin card 2-->
         <div class="card">
@@ -156,8 +157,10 @@
                 </ul>
             </div>
         </div>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
         <!--crispy thin card end 2-->
     </div>
+</div>
 </div>
 <!--size and crust body end-->
 
@@ -222,7 +225,6 @@
                 </div>
                 <!--sauce card end-->
      <!--cheese and sauce body end-->
-        <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
      <!--toppings card body start-->
             <div class="card">

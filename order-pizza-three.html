@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--links-->
+    <title>Pizza Exercise</title>
+<!--links-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
           integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
     <title>Pizza World</title>
-    <!--links end-->
+<!--links end-->
 </head>
 <body>
-<header>
-<!--NAVBAR START-->
+<!--NAVBAR-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <a class="navbar-brand" href="#">Pizza World</a>
@@ -33,6 +33,18 @@
                 <a class="nav-link" href="#">Menu</a>
             </li>
             <li class="search-zip">
+                <!-- <div class="zip-code-bar">
+                     <input type="search" id="zip-code" placeholder="Zip code" aria-label="Zip code">
+                     <button class="btn-zip-search" type="submit">Search stores near you!</button>
+                 </div>
+                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Dropdown</a>
+                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <a class="dropdown-item" href="#">Action</a>
+                     <a class="dropdown-item" href="#">Another action</a>
+                     <div class="dropdown-divider"></div>
+                     <a class="dropdown-item" href="#">Something else here</a>-->
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
                     <button class="form-control mr-sm-2" type="submit">Search stores near you!</button>
@@ -46,25 +58,27 @@
     </div>
 </nav>
 <!--NAVBAR END-->
-</header>
-<div class="container"><!--container start-->
-<!--JUMBOTRON START-->
+<div class="container">
+<!----------------------------->
+    <!--JUMBOTRON-->
     <div class="jumbotron jumbotron-fluid"
          style="background-image:
      url(https://java.codeup.com/examples/bootstrap/pizza.png);
      background-size: 100%"> <!--Pizza img-->
-            <h1 class="display-4 text-center">Welcome to Pizza World!</h1>
+        <div class="container">
+            <h1 class="display-4">Welcome to Pizza World!</h1>
+        </div>
     </div>
-<!--JUMBOTRON END-->
-<!--HEADER-->
+    <!--JUMBOTRON END-->
+<!----------------------------->
+    <!--HEADER-->
     <h2>Build your own pizza!</h2>
-<!--HEADER END START-->
 
-<!--NAV TABS FOR PIZZA START-->
+    <!--NAV TABS FOR PIZZA-->
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <a href="#size" class="nav-link active" role="tab" data-toggle="tab">
-                <span id="tab_one">1</span> Size and crust</a>
+                    <span id="tab_one">1</span> Size and crust</a>
         </li>
         <li class="nav-item">
             <a href="#cheese" class="nav-link" role="tab" data-toggle="tab">
@@ -80,19 +94,19 @@
 
 <!--TAB CONTENT START-->
     <div class="tab-content">
-        <!--SIZE AND CRUST TAB-->
-        <div role="tabpanel" class="tab-pane active" id="size">
+<!--SIZE AND CRUST TAB-->
+        <div role="tabpanel" class="tab-pane fade in active" id="size">
             <div class="card">
                 <div  class="p-3 mb-2 bg-primary text-white">Choose size and crust</div>
 
-                <div class="card-body"><!--hand tossed-->
-                    <div class="card">
-                        <div class="card-header">Hand Tossed
+                    <div class="card-body"><!--hand tossed-->
+                        <div class="card">
+                            <div class="card-header">Hand Tossed
 
-                        </div>
-                        <div class="card-body">
-                            Garlic seasoned crust with a rich, buttery taste.
-                        </div>
+                            </div>
+                            <div class="card-body">
+                                Garlic seasoned crust with a rich, buttery taste.
+                            </div>
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-check">
@@ -123,50 +137,50 @@
                         </div>
                     </div><!--hand tossed end-->
                     <br>
-                    <div class="card"><!--crispy thin start-->
-                        <div class="card-header">Crispy Thin
+                        <div class="card"><!--crispy thin start-->
+                            <div class="card-header">Crispy Thin
 
-                        </div>
-                        <div class="card-body">
-                            Thin enough for optimum crispy to crunchy ratio.
-                        </div>
-                        <div class="card">
+                            </div>
                             <div class="card-body">
-                                <div class="form-check">
-                                    <input class="form-check-input"
-                                           type="radio"
-                                           name="exampleRadios"
-                                           id="exampleRadios2"
-                                           value="option2">
-                                    <label class="form-check-label" for="exampleRadios2">
-                                        Medium(12")
-                                    </label>
+                                Thin enough for optimum crispy to crunchy ratio.
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="exampleRadios"
+                                               id="exampleRadios2"
+                                               value="option2">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Medium(12")
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="form-check">
-                                    <input class="form-check-input"
-                                           type="radio"
-                                           name="exampleRadios"
-                                           id="exampleRadios2"
-                                           value="option2">
-                                    <label class="form-check-label"
-                                           for="exampleRadios2">
-                                        Large(14")
-                                    </label>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="exampleRadios"
+                                               id="exampleRadios2"
+                                               value="option2">
+                                        <label class="form-check-label"
+                                               for="exampleRadios2">
+                                            Large(14")
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div><!--crispy thin end-->
-                    <a href="#" class="btn btn-primary">Next Step <i class="fas fa-chevron-right"></i></a>
+                        </div><!--crispy thin end-->
+                    <a href="#" class="btn btn-primary">Next Step</a>
                 </div>
             </div>
         </div>
-        <!--SIZE AND CRUST TAB END-->
+<!--SIZE AND CRUST TAB END-->
 
-        <!--CHOOSE CHEESE AND SAUCE TAB START-->
+<!--CHOOSE CHEESE AND SAUCE TAB START-->
         <div role="tabpanel" class="tab-pane fade in active" id="cheese">
             <div class="card">
                 <div  class="p-3 mb-2 bg-primary text-white">Choose Cheese and Sauce</div>
@@ -237,13 +251,13 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="btn btn-primary">Next Step <i class="fas fa-chevron-right"></i> </a>
-                    <a href="#" class="btn btn-primary"><i class="fas fa-chevron-left"></i> Previous Step</a>
+                    <a href="#" class="btn btn-primary">Previous Step</a>
+                    <a href="#" class="btn btn-primary">Next Step</a>
                 </div><!--how much end-->
             </div>
         </div>
-        <!--CHOOSE CHEESE AND SAUCE TAB END-->
-        <!--CHOOSE TOPPINGS-->
+<!--CHOOSE CHEESE AND SAUCE TAB END-->
+<!--CHOOSE TOPPINGS-->
         <div role="tabpanel" class="tab-pane fade" id="topping">
             <div class="card">
                 <div  class="p-3 mb-2 bg-primary text-white">
@@ -371,16 +385,22 @@
 
                             </div>
                         </div>
-                        <a href="https://www.youtube.com/watch?v=TRgdA9_FsXM" id="checkout" class="btn btn-primary">Checkout <i class="fas fa-shopping-cart"></i></a>
-                    </div>
+                    <a href="#" id="checkout" class="btn btn-primary">Checkout</a>
                 </div>
+
             </div>
+
         </div>
-        <!--CHOOSE TOPPINGS END-->
     </div>
+    </div>
+</div>
+<!--CHOOSE TOPPINGS END-->
 <!--TAB CONTENT END-->
 
-</div><!--container end-->
+
+
+
+
 
 
 
@@ -399,15 +419,6 @@
 </script>
 <!--scripts end-->
 <!--your custom js goes here-->
-<!--<script>
-    $('#btnNext').click(function(){
-        $('.nav-tabs > .nav-link').next('li').find('a').trigger('click');
-    });
-
-    $('#btnPrevious').click(function(){
-        $('.nav-tabs > .nav-link').prev('li').find('a').trigger('click');
-    });
-</script>-->
 
 </body>
 </html>
