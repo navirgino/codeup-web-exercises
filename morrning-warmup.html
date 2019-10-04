@@ -18,7 +18,6 @@
 
         console.log(sum(3 , 4));
 
-
     </script>
 
     <!-- wrote a function to find the area of a triangle -->
@@ -90,6 +89,41 @@
 
         }
         console.log(upperCase("pizza time"))
+    </script>
+<!--area with diameter given-->
+    <script>
+        function areaofCircWithDiameter() {
+            var diameter = prompt("Please enter the diameter: ");
+            var squared =  diameter * diameter;
+            return (1/4)*Math.PI*squared
+
+
+        }
+        console.log(areaofCircWithDiameter())
+    </script>
+<!--david's solution below-->
+    <script>
+        function areaCircDia(d) {
+            var radius = d / 2;
+            return Math.PI * Math.pow(radius, 2);
+        }
+        console.log(areaCircDia(5));
+    </script>
+
+<!--perimeter of quadrilateral-->
+    <script>
+        function perimeterOfQuad(a, b, c, d) {
+            return a + b + c + d;
+        }
+
+        console.log(perimeterOfQuad(1, 2, 3, 4))
+    </script>
+
+    <script>
+        function checkType(x){
+            return typeof x;
+        }
+        console.log(checkType(3))
     </script>
 </body>
 </html>
