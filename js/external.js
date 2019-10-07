@@ -57,8 +57,25 @@ var fbHr = prompt("How many hours at Facebook?");
 var totalPurse = (googlePay * googlehr) + (fbPay * fbHr) + (amazonPay * amazonHr);
 console.log(totalPurse);
 
-/*
-C.) A product offer can be applied only
+/*C.) A student can be enrolled in a
+class only if the class is not full and the
+class schedule does not conflict with her current schedule.*/
+function enrollment(){
+    var fullClass = confirm("Is the class full?");
+    var schedule = confirm("Does it conflict with your schedule");
+    if ((fullClass === false) || (schedule === false)) {
+        return alert("You cannot enroll");
+    } else {
+        return alert("You can enroll");
+    }
+}
+
+console.log(enrollment());
+
+
+
+
+/*D.) A product offer can be applied only
 if a person buys more than 2 items,
     and the offer has not expired.
     Premium members do not need to buy a
