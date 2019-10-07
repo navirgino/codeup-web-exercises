@@ -76,7 +76,7 @@ console.log(enrollment());
 
 
 /*D.) A product offer can be applied only
-if a person buys more than 2 items,
+    if a person buys more than 2 items,
     and the offer has not expired.
     Premium members do not need to buy a
 specific amount of products.*/
