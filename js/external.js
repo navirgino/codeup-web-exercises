@@ -4,7 +4,7 @@ console.log("Hello from external Javascript");
 
 /*1. Use the alert function to show a message that says 'Welcome to my Website!'.*/
 
-console.log(alert("Welcome to my Website!"));
+alert("Welcome to my Website!");
 
 /*
 2. Use a prompt to ask for the user's favorite color.
@@ -14,7 +14,7 @@ For example, if the user enters "blue", your code should alert a message that sa
 */
 
 var color = prompt("What's your favorite color?");
-var myColor = alert('COOL! My favorite color is the color of my heart, an endless void of black!');
+var myColor = alert('COOL! My favorite color is also ' + color);
 console.log(color);
 console.log(myColor);
 
@@ -31,14 +31,14 @@ console.log(myColor);
     you don't know yet if they're going to like it).
 If price for a movie per day is $3, how much will you have to pay?*/
 var PriceOfMoviePerDay = 3;
-var littleMermaidDays = prompt("How many days did you rent Little Mermaid?");
-var brotherBearDays = prompt("How many days did you rent Brother Bears?");
-var herculesDays = prompt("How many days did you rent Hercules?");
+var littleMermaidDays = parseInt(prompt("How many days did you rent Little Mermaid?"));
+var brotherBearDays = parseInt(prompt("How many days did you rent Brother Bears?"));
+var herculesDays = parseInt(prompt("How many days did you rent Hercules?"));
 var littleMermaidCost = littleMermaidDays * PriceOfMoviePerDay;
 var brotherBearCost = brotherBearDays * PriceOfMoviePerDay;
 var herculesCost = herculesDays * PriceOfMoviePerDay;
 var totalCost = littleMermaidCost + brotherBearCost + herculesCost;
-console.log("Total cost of all movies are: " + totalCost);
+alert("Total cost of all movies are: $" + totalCost);
 
 /*
 B.) Suppose you're working as a contractor for 3 companies:' +
@@ -48,14 +48,14 @@ B.) Suppose you're working as a contractor for 3 companies:' +
 'How much will you receive in payment for this week? ' +
 'You worked 10 hours for Facebook, 6 hours for Google and ' +
 '4 hours for Amazon.*/
-var googlePay = prompt("How much does Google pay you?");
-var amazonPay = prompt("How much does Amazon pay you?");
-var fbPay = prompt("How much does Facebook pay you?");
+var googlePay = 400;
+var amazonPay = 380;
+var fbPay = 350;
 var googlehr = prompt("How many hours at Google?");
 var amazonHr = prompt("How many hours at Amazon?");
 var fbHr = prompt("How many hours at Facebook?");
 var totalPurse = (googlePay * googlehr) + (fbPay * fbHr) + (amazonPay * amazonHr);
-console.log(totalPurse);
+alert("You are making: $ " + totalPurse);
 
 /*C.) A student can be enrolled in a
 class only if the class is not full and the
