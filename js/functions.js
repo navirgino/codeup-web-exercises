@@ -9,8 +9,10 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 function sayHello(name){
-    return "Hello" + name;
+    return "Hello" + name + "!";
 }
+
+
 
 
 /**
@@ -20,9 +22,14 @@ function sayHello(name){
  *
  * console.log 'helloMessage' to check your work
  */
-var helloMessage = sayHello(name);
+
+
+var helloMessage = sayHello("Deimos");
 
 console.log(helloMessage);
+
+
+
 /**
  * TODO:
  * Store your name as a string in a variable named 'myName', and pass that
@@ -78,7 +85,7 @@ function calculateTip(tipPercentage , totalBill){
 }
 
 
-console.log(calculateTip( .20, 20));
+console.log(calculateTip( .18, 20));
 console.log(calculateTip(.25, 25.50));
 console.log(calculateTip(.15, 33.42));
 
@@ -96,6 +103,16 @@ function totalTipTwo(){
 
 }
 totalTipTwo();
+
+
+/*david's solution
+* var bill = parseFloat(prompt("How much was dinner?"));
+* var tipPercentage = parseInt(prompt("What percentage would you like to tip?")) / 100;
+* alert("With a bill of $" + bill.toFixed(2) + " and a tip of " + (tipPercentage * 100) + "%, you should add a tip of: $" +
+*  calculateTip(tipPercentage, bill).toFixed(2));
+* */
+
+
 /**
  * TODO:
  * Create a function named `applyDiscount`. This function should accept a price
@@ -127,3 +144,13 @@ function applyDis() {
 
 }
 console.log(applyDis());
+
+
+/*david's solution
+* function ApplyDiscount(originalPrice, discountPrice){
+*   return originalPrice - (originalPrice * discountPercentage);
+*
+* }
+*
+* console.log(applyDiscount(100, .2));
+* */
