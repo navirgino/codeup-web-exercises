@@ -357,7 +357,8 @@ var userTotalBill = parseFloat(prompt("What was your total bill? "));
 
 var finalAmount = calculateTotal(luckyNumber, userTotalBill);
 
-alert("Your lucky number is: " + luckyNumber + " Your total bill was: " + userTotalBill + " Your discount total is: " + finalAmount);
+alert("Your lucky number is: " + luckyNumber + " Your total bill was: " + userTotalBill
+    + " Your discount total is: " + finalAmount);
 
 
 
