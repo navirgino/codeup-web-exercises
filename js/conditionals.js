@@ -39,6 +39,50 @@ if (confirm("Would you like to enter a number?") === true){
 }
 */
 
+//Vivian's solution:
+//Pseudo code
+//1. I need a confirm to ask the user if they want to enter a number
+//note: if they dont want to enter a number - game over!!
+//2. If they click confirm (we need a conditional)ask the user for a number(prompt)
+//3. We need to check if this is a number or not a number
+//4. If it is a number: then even/odd, number + 100, neg/pos
+//5. If it's not a number, tell them its not a number
+
+/*var userConfirm = confirm("would you ike to enter a number?");
+if(userConfirm){
+    //true path
+    var userInput = prompt("please enter a number.");
+
+    console.log("The users number: " + userInput);
+    //checking to see if the user number is a number
+    var isNumber = !isNaN(userInput);
+
+    console.log("The user entered a number: " + isNumber);
+
+    if(isNumber){
+        //true path - user has entered a number
+        var userNumber = parseFloat(userInput);
+        var isEven = userNumber % 2 === 0;
+
+        console.log("The users number is even: " + isEven);
+
+        var evenMessage = (isEven) ? "Your number is even!" : "Your number is odd";
+        alert(evenMessage);
+
+        alert(userNumber + 100);
+
+        var posNegMessage = (userNumber >= 0) ? "Your number is positive!" : "Your number is negative!";
+        alert(posNegMessage);
+
+
+
+    }else{
+        alert("Hey that's not a number!");
+    }
+
+
+}*/
+
 
 /* ########################################################################## */
 
@@ -59,6 +103,25 @@ if (confirm("Would you like to enter a number?") === true){
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
+//Vivian's solution:
+function analyzeColor(color){
+    var colorMessage;
+
+    if(color === "blue"){
+        colorMessage = "Wow, that's blue!";
+    }else if(color === "red"){
+        colorMessage = "Red is the color of my codeup cup ... most of the time!";
+    }else if(color === "cyan"){
+        colorMessage = "Cyan is a lame blue";
+    }else{
+        colorMessage = "I don't know that color";
+    }
+
+    return colorMessage;
+}
+/*
+console.log(analyzeColor("blue"));*/
+
 
 /*function analyzeColor(color){
     var returnMessage;
@@ -99,6 +162,13 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message everytime you refresh the page
  */
+
+// Vivian's solution:
+console.log(randomColor);
+console.log(analyzeColor(randomColor));
+
+
+
 /*
 function analyzeColor(randomColor){
     var returnMessage;
@@ -205,7 +275,10 @@ console.log(analyzeColor(colorInput));*/
  */
 
 
-function luckyNumber() {
+
+
+
+/*function luckyNumber() {
     var max= 0;
     var min=5;
     return Math.floor(Math.random() * max - min + 1)
@@ -228,46 +301,43 @@ function calculatedTotal() {
     }
 }
 
-console.log(calculatedTotal());
-
-/*
-console.log(luckyNumber());
+console.log(calculatedTotal());*/
 
 
-function calculateTotal(luckyNumber() {
+
+function calculateTotal(luckyNumber, totalPrice) {
+    var discountRate = 0;
     switch (luckyNumber) {
         case 0:
-            alert("You have a 0% discount!");
-            alert("Your total is " + luckyNumber(0));
+            discountRate = 0;
             break;
         case 1:
-            alert("You have a 10% discount!");
-            alert("Your total is " + luckyNumber(1));
+            discountRate = .1;
             break;
         case 2:
-            alert("You have a 25% discount!");
-            alert("Your total is " + luckyNumber(2));
+            discountRate = .25;
             break;
         case 3:
-            alert("You have a 35% discount!");
-            alert("Your total is " + luckyNumber(3));
+            discountRate = .35;
             break;
         case 4:
-            alert("You have a 50% discount!");
-            alert("Your total is " + luckyNumber(4));
+            discountRate = .50;
             break;
         case 5:
-            alert("It's free!!!!!");
-            alert("Your total is " + luckyNumber());
+            discountRate = 1;
             break;
         default:
             alert("Interesting. . .");
             break;
     }
+
+    return totalPrice - (totalPrice * discountRate);
 }
 
-console.log(calculateTotal(luckyNumber()));
-*/
+console.log(calculateTotal(0, 100)); // returns 100
+console.log(calculateTotal(4, 100)); // returns 50
+console.log(calculateTotal(5, 100)); // returns 0
+
 
 
 
@@ -279,4 +349,16 @@ console.log(calculateTotal(luckyNumber()));
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
+console.log(luckyNumber);
+
+//need a user bill prompt total
+var userTotalBill = parseFloat(prompt("What was your total bill? "));
+
+var finalAmount = calculateTotal(luckyNumber, userTotalBill);
+
+alert("Your lucky number is: " + luckyNumber + " Your total bill was: " + userTotalBill
+    + " Your discount total is: " + finalAmount);
+
+
+

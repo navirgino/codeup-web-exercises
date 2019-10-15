@@ -1,129 +1,122 @@
 /*
+Heather is wanting to join an after school club.
+She is currently involved with another club at school, but luckily all after
+school clubs will only meet on one day out of the week.
+Return a string to Heather as to whether or not she can join another
+club.*/
 
-function isTrue(boolean) {
-    return boolean === true;
+
+
+/*function Heather() {
+   return ("You can you join!");
 }
 
-console.log(isTrue(true));
-console.log(isTrue(false));
-console.log(isTrue(0));
-console.log(isTrue(null));
-console.log(isTrue("true"));
-console.log(isTrue("Banana"));
-console.log(isTrue([1, 2]));
+console.log(Heather());*/
 
-function isFalse(boolean){
-    return boolean === false;
+// then i need to prompt for her schedule
+/*var heathersSchedule = prompt("What day would you like to see that you have open?");
+
+// then i need to see make an if else statement checking her availability for the new club
+if (heathersSchedule === 'Monday'){
+    alert("You can't, you have band that day.")
+}if (heathersSchedule === 'Tuesday'){
+    alert("You can't you have softball that day.")
+}if (heathersSchedule === 'Wednesday') {
+    alert("You can't you have Codeup that day.")
+} else{
+    alert("You can join!");
 }
 
-console.log(isFalse(true));
-console.log(isFalse(false));
-console.log(isFalse(0));
-console.log(isFalse(null));
-console.log(isFalse("true"));
-console.log(isFalse("Banana"));
-console.log(isFalse([1, 2]));*/
+console.log(heathersSchedule);*/
 
-/*
-function not(param){
-    return !param
+
+/*Rodrigo is a chef, and needs to buy food for his restaurant.
+He's worked out a deal with the shop and can get his food for a
+twenty percent discount, but the shop changes their prices from week to week.
+Rodrigo needs to buy tofu, lamb, and potatoes.
+Return a string to Rodrigo with his total based on how much of each
+item he's buying, by weight in pounds, the price of the
+items per pound, and also inform him of the savings he's receiving
+from the store.*/
+var tofuPerPound = 10;
+var lambPerPound = 10;
+var potatoPerPound = 10;
+
+
+//string on how much of each item's buying by weight in pounds
+//string on price of items per pound
+//string informing im of the savings he's receiving from the store
+
+
+function random(){
+    var lamb = parseInt(prompt("How many pounds lamb?"));
+    var tofu = parseInt(prompt("How many pounds tofu?"));
+    var potato = parseInt(prompt("How many pounds of potatoes?"));
+    alert("You are buying " + tofu + " pounds of tofu, " + lamb + " pounds of lamb "
+    + potato + " pounds of potatoes.");
+    alert("The total is " + " $" + (parseFloat(tofuPerPound * tofu + lambPerPound * lamb + potatoPerPound * potato) + " without a discount."));
+    alert("Your total with a discount is: " + " $" + (parseFloat(tofuPerPound * tofu + lambPerPound * lamb + potatoPerPound * potato)) -
+        (.20 * (parseFloat(tofuPerPound * tofu + lambPerPound * lamb + potatoPerPound * potato))));
+    alert("You saved " + " $" + .20 * (parseFloat(tofuPerPound * tofu + lambPerPound * lamb + potatoPerPound * potato)) + "! ");
 }
 
-console.log(not(false));                 // true
-console.log(not(0));                   // true
-console.log(not(""));                    // true
-console.log(not(null));                   // true
-console.log(not(NaN));                // true
-console.log(not(undefined));            // true
-console.log(not(true));                 // false
-console.log(not("something"));         // false
-console.log(not(Infinity));           // false
-console.log(not(123));*/
+console.log(random());
+//need to make a function informing him of how much tofu he's buying by weight in pounds
+//and with the price in pounds
 
 
-/*
-function addOne(num){
-    return parseFloat(num) + 1;
+function totalTofu(tofuNum){
+    return "You are buying " + tofuNum + " pounds of tofu." +
+        " The price for each pound is " + tofuPerPound + ".";
 }
 
-console.log(addOne(0));
-console.log(addOne(2));   // 3
-console.log(addOne(-5));                   // -4
-console.log(addOne(5.789));                // 6.789
-console.log(addOne(Infinity));             // Infinity
-console.log(addOne("2"));                  // 3
-console.log(addOne("0"));                  // 1
-console.log(addOne("banana"));             // NaN
-console.log(addOne(true));                 // NaN
-console.log(addOne(NaN));*/
+//repeat above but for lamb
 
-/*function isEven(num){
-   return typeof num % typeof 2 === 0;
+function totalLamb(lambNum){
+    return "You are buying " + lambNum + " pounds of lamb." +
+        " The price for each pound is " + lambPerPound + ".";
 }
 
-console.log(isEven(2));                   // true
-console.log(isEven(-8));                  // true
-console.log(isEven(0));                   // true
-console.log(isEven("42"));                // true
-console.log(isEven(1));                   // false
-console.log(isEven("-3"));                // false
-console.log(isEven(false));               // false
-console.log(isEven("banana"));            // false*/
 
-/*
-function isIdentical(arg_one, arg_two){
-    return arg_one === arg_two;
-
+//repeat for potatoes
+function totalPotato(potatoNum){
+    return "You are buying " + potatoNum + " pounds of potatoes." +
+        " The price for each pound is " + potatoPerPound + ". ";
 }
 
-console.log(isIdentical(3, 3));                     // true
-console.log(isIdentical(false, false));             // true
-console.log(isIdentical("hello", "hello"));         // true
-console.log(isIdentical(3, 3.0));                   // true
-console.log(isIdentical(undefined, undefined));     // true
-console.log(isIdentical(2, "2"));                   // false
-console.log(isIdentical("javascript", "java"));     // false*/
-
-/*function isEqual(arg_one, arg_two){
-    return arg_one == arg_two;
-
+function totalPoundage(){
+   return totalTofu() + totalLamb() + totalPotato();
 }
 
-console.log(isEqual(3, "3"));                       // true
-console.log(isEqual("abc123", "abc123"));           // true
-console.log(isEqual(true, 1));                      // true
-console.log(isEqual(0, false));                     // true
-console.log(isEqual(4, -5));                        // false
-console.log(isEqual("java", "javascript"));         // false*/
 
-/*function or(arg_one, arg_two){
-    return arg_one || arg_two;
+// now i need to inform rodrigo how much the total he's for everything, and how much he is saving
+function rodrigoShopping(num_one, num_two, num_three){
+    return totalPoundage() + "Your total is: " + (tofuPerPound * parseFloat(num_one))
+        + (lambPerPound * parseFloat(num_two)) + (potatoPerPound * parseFloat(num_three)) * .20 + ".";
 }
 
-console.log(or(true, true));                    // true
-console.log(or(true, false));                   // true
-console.log(or(false, true));                   // true
-console.log(or(false, false));                  // false
-console.log(or("hello", "world"));              // "hello" (this behavior is non-obvious, research more!)*/
 
-/*function and(arg_one, arg_two){
-    return arg_one && arg_two;
 
-}
+/*!!! ALGEBRA HEAVY !!!
+Jimmy wants to buy and sell some metal.
+If he has two and a half pounds he can
+ smelt it into an ingot and sell back the metal
+for triple the profit. Any metal he has,
+ he can sell back for a thirty percent loss.
+  Jimmy will alway make an ingot if he can,
+and will sell all of the metal he has, ingot or not.
+ The metal Jimmy wants to smelt is priced at fifteen dollars per eight
+ounces. Create a function that will take in an amount of money,
+in dollars, that will return how much money Jimmy made from
+his investment.*/
 
-console.log(and(true, true));                    // true
-console.log(and(true, false));                   // false
-console.log(and(false, true));                   // false
-console.log(and(false, false));                  // false
-console.log(and("hello", "world"));   */           // "world" (this behavior is non-obvious, research more
 
-/*
-function concat(arg_one, arg_two){
-    return ("" + arg_one + arg_two);
-}
-
-console.log(concat("code", "up"));                // "codeup"
-console.log(concat("connect", 4));                // "connect4"
-console.log(concat("hello", "world"));            // "helloworld"
-console.log(concat(4, 2));                        // "42"
-console.log(concat(true, true));                  // "truetrue"*/
+/*Georgia wants to run a marathon.
+She is able to run at a speed of 10.75 km/hr for an hour,
+ but her speed decreases by half of
+a mile per hour every forty-five minutes.
+ Georgia will only ever run as slow as 1 km/hr.
+ How long will it take for Gerogia to
+finish her race? Return a string saying how
+ many hours it will take for Georgia to
+  complete her run for a given distance, in miles.*/
