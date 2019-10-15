@@ -62,11 +62,11 @@ do {
         console.log("Yay I sold them all!!!!!!!!!");
 
     }
+    allCones++;
 
     console.log(allCones - conesRequested + " cones remain.");
-    allCones++
 
-}while(allCones <= 0);
+}while(allCones > 0);
 
 
 /*
