@@ -51,7 +51,7 @@
      * Example:
      *  > first([1, 2, 3, 4, 5]) // returns 1
      *  > second([1, 2, 3, 4, 5]) // returns 2
-     *  > last([1, 2, 3, 4, 5]) // return 5
+
      */
 
     function returnOne(sequence){
