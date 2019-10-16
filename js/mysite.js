@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 var tetrominos = [{
     // box
@@ -182,9 +182,10 @@ Tetris.prototype.init = function(){
     // assign the first tetri
     this.newTetromino();
     this.update();
-};
+};*/
 
 
+/*
 Tetris.prototype.update = function() {
     var curPiece = this.curPiece;
 
@@ -442,4 +443,4 @@ var width = window.innerWidth,
 
 for(var w = 0; w < boards; w++){
     tetrisInstances.push(new Tetris(20 * Math.round((w*bWidth)/20), 0, bWidth));
-}
+}*/

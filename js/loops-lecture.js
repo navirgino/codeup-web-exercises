@@ -111,9 +111,13 @@ var myArray = ["apples", "oranges", "bananas", "grapes", "pineapples"];
 
 }*/
 
-for(var s = 0; s < 101;){
+
+/*SHORT FIZZBUZZ BELOW*/
+
+
+/*for(var s = 0; s < 101;){
     console.log((++s%3 ? "":"Fizz") + (s%5 ? "":"Buzz") || s);
-}
+}*/
 
 
 
@@ -121,6 +125,13 @@ for(var s = 0; s < 101;){
 
 
 // 9. Refactor question 1 using a for-loop
+for(var b = 100; b > 1; b--){
+    if(b === 27){
+        console.log("skip: " + b);
+        continue;
+    }
+    console.log(b);
+}
 // 10. Write a for-loop 
 
 
