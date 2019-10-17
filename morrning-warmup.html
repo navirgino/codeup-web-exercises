@@ -207,7 +207,7 @@ console.log(lengthOfArray([1 , 2 , 3 , 4 , 5 , 6]));
     console.log(returnQuotient(2, 4));
     console.log(returnQuotient(6, "3"));
     console.log(returnQuotient("12", 8));
-    console.log(returnQuotient("11, 8"))
+    console.log(returnQuotient("11, 8"));
     console.log(takesAnArrayFive(["Nico", "Adri", "Nick", "Rain", "Gloria"]));
 
 
@@ -223,7 +223,7 @@ console.log(lengthOfArray([1 , 2 , 3 , 4 , 5 , 6]));
 </script>
 <script>
     function eightCharacter(input){
-        if(input.length >= 8){
+        if(typeof input === 'string' && input.length >= 8){
             return true;
         }else{
             return false;
