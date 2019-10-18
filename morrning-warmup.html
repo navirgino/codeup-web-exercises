@@ -234,7 +234,19 @@ console.log(lengthOfArray([1 , 2 , 3 , 4 , 5 , 6]));
     console.log(eightCharacter("Eightyie"));
 
 </script>
-
+<script>
+    function roundDownFloatNum(num){
+        if (typeof num === "number" && !isNaN(num)){
+            return Math.round(Math.floor(num));
+        }else{
+            return false;
+        }
+    }
+    console.log(roundDownFloatNum(6.2));
+    console.log(roundDownFloatNum("7.5"));
+    console.log(roundDownFloatNum(6.5));
+    console.log(roundDownFloatNum("eggs"));
+</script>
 
 
 </body>

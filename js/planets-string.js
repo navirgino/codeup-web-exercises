@@ -30,7 +30,15 @@
      * list. You will need an opening AND closing <ul> tags around the entire
      * string, and <li> tags around each planet.
      */
-
+     /*David's solution commented out below*/
+/*
+    var planetsUL = "<ul>";
+    planetsArray.forEach(function(planets){
+        planetsUL += "<li>" + planets + "</li>"
+    });
+    planetsUL += "</ul>";
+    document.write(planetsUL);
+*/
 
 
      planetsArray.unshift('<ul>');
