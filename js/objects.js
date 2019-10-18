@@ -12,15 +12,18 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
     var person = {};
-        person.firstName = 'Nicola';
-        person.lastName = 'Virgino';
-        person.sayHello = function(){
-            return ("Hello from " + person.firstName + " " + person.lastName + "! ");
-        };
 
 
-    console.log(person.firstName);
-    console.log(person.lastName);
+    person.login = {
+        firstName: 'Nicola',
+        lastName: 'Virgino'
+    };
+
+
+
+
+    console.log(person.login.firstName);
+    console.log(person.login.lastName);
 
     /**
      * TODO:
@@ -31,6 +34,11 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+    person.sayHello = function(){
+        return ("Hello from " + this.login.firstName + " " + this.login.lastName + "! ");
+    };
+
+
     console.log(person.sayHello());
 
     /** TODO:
@@ -51,20 +59,37 @@
     // ryan needs to pay 250 - 12% discount
         //george needs to pay $320 minus 12% discount
     var shoppers = [
-        {name: 'Cameron', amount: 180},
-        {name: 'Ryan', amount: 250},
-        {name: 'George', amount: 320}
+        {
+            name: 'Cameron',
+            amount: 180
+        },
+        {
+            name: 'Ryan',
+            amount: 250
+        },
+
+            {name: 'George',
+            amount: 320
+        }
     ];
 
-    //create an array
-    console.log(shoppers);
 
+    shoppers.forEach(function(name){
 
-    if (shoppers.amount >= 200){
-        return shoppers.amount * .12;
-    }else{
-        return shoppers.amount;
-    }
+    /*    if(name.amount <= 180){
+            console.log(name.amount + " is how much " + shoppers[0].name + " needs to pay.");
+        }else if(name.amount === 250){
+            console.log(name.amount - name.amount * .12 + " is how much " + shoppers[1].name + " needs to pay.");
+        }else if(name.amount === 320){
+            console.log(name.amount - name.amount * .12 +  " is how much " + shoppers[2].name + " needs to pay.");
+        }*/
+        if(name.amount >= 200){
+            console.log(name.amount - name.amount * .12 + " is how much " + name.name + " needs to pay.")
+        }else{
+            console.log(name.amount + " is how much " + name.name + " needs to pay.")
+        }
+    });
+
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -78,6 +103,55 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+    var books = [
+        {
+            title: 'Game of Thrones',
+            author: {
+                firstName: "George",
+                lastName: "Martin"
+            }
+
+        },
+
+        {
+            title: 'Art of War',
+            author: {
+                firstName: "Sun",
+                lastName: "Tzu"
+            }
+
+        },
+
+        {
+            title: 'Fight Club',
+            author: {
+                firstName: "Chuck",
+                lastName: "Palahniuk"
+            }
+
+        },
+
+        {
+            title: 'Breakfast of Champions',
+            author: {
+                firstName: "Kurt",
+                lastName: "Vonnegut"
+            }
+
+        },
+
+        {
+            title: 'Musashi',
+            author: {
+                firstName:'Eiji',
+                lastName: 'Yoshikawa'
+            }
+
+        }
+
+    ];
+
+
 
     /**
      * TODO:
@@ -103,16 +177,61 @@
      *      ---
      *      ...
      */
+   /* books.forEach(function(book){
+
+       console.log("Book # " + parseFloat(books.indexOf(book) + 1));
+       console.log("Title: " + book.title);
+       console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+       console.log("---")
+    });*/
+
+
+
 
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
      *   name and returns a book object with the properties described
-     *   previously. Refactor your code that creates the books array to instead
+     *   previously.
+     *
+     *   Refactor your code that creates the books array to instead
      *   use your function.
+     *
      * - Create a function named `showBookInfo` that accepts a book object and
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+
+function createBook(title, first, last){
+    var addedBook = {};
+    addedBook.title = title;
+    addedBook.author = {
+        firstName: first,
+        lastName: last
+    };
+    return addedBook;
+
+}
+/*var newBook = createBook("me", "b" , "z");*/
+/*console.log(newBook);*/
+
+books.push(createBook("a", "b", "c"));
+
+console.log(books);
+
+function showBookInfo(){
+    books.forEach(function(bookObject){
+
+        console.log("Book # " + parseFloat(books.indexOf(bookObject) + 1));
+        console.log("Title: " + bookObject.title);
+        console.log("Author: " + bookObject.author.firstName + " " + bookObject.author.lastName);
+        console.log("---")
+    });
+
+}
+
+console.log(showBookInfo());
+
 
 })();

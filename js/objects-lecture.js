@@ -178,11 +178,11 @@ myPhone.call();
  * "Powering on..."
  */
 
-myMac.powerOne = function(){
+myMac.powerOn = function(){
     console.log("Powering on...")
 };
 
-myMac.powerOne();
+myMac.powerOn();
 
 /**
  * TO DO TOGETHER: Let's add one more piece of functionality. Create a
@@ -190,6 +190,11 @@ myMac.powerOne();
  * firstName and lastName. Hint: use the 'this' keyword.
  */
 
+myPhone.currentUser = function(){
+    console.log("My name is " + this.name.firstName + " " + this.name.lastName + ". ");
+};
+
+myPhone.currentUser();
 
 
 /**
@@ -197,7 +202,11 @@ myMac.powerOne();
  * Mac user's 'username' and 'email'. Use the 'this' keyword to reference
  * the properties we created earlier.
  */
+myMac.currentUser = function(){
+    console.log("My username is " + this.login.username + " and my email is " + this.login.email + ". ");
+};
 
+myMac.currentUser();
 
 /*********************************************
  *                  NESTED VALUES
