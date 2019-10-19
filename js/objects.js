@@ -74,7 +74,7 @@
     ];
 
 
-    shoppers.forEach(function(name){
+    shoppers.forEach(function(shopper){
 
     /*    if(name.amount <= 180){
             console.log(name.amount + " is how much " + shoppers[0].name + " needs to pay.");
@@ -83,10 +83,10 @@
         }else if(name.amount === 320){
             console.log(name.amount - name.amount * .12 +  " is how much " + shoppers[2].name + " needs to pay.");
         }*/
-        if(name.amount >= 200){
-            console.log(name.amount - name.amount * .12 + " is how much " + name.name + " needs to pay.")
+        if(shopper.amount > 200){
+            console.log(shopper.amount - shopper.amount * .12 + " is how much " + shopper.name + " needs to pay.")
         }else{
-            console.log(name.amount + " is how much " + name.name + " needs to pay.")
+            console.log(shopper.amount + " is how much " + shopper.name + " needs to pay.")
         }
     });
 
