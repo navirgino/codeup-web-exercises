@@ -42,38 +42,116 @@ console.log(makeCar("VW", "beetle"));
 
 //TODO: Object needs to have the following: title, date, office, and employees.
 //TODO: Employee property needs to be an array of objects
-//TODO: Each employee should have employee-number, first-name, last-name, sales-units
+//TODO: Each employee should be represented by an obj with the follow properties
+//                                  employee-number, first-name, last-name, sales-units
 
 var salesReport = {
     title: "Monthly Sales Report",
     date: "03-17-2015",
     office: "Codeup",
-    employee: [
+    employees: [
         {
-           empNum: ["1", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
-        },
-        {
-           firstName: ["Jane", "Tricia", "Jeannette", "Charles", "Chaiam",
-               "Dale", "Zig", "Henry", "Arthur Herbert", "Betty"]
-        },
-        {
-           lastName: ["Janeway", "Triciason", "Jeanson", "Emmerson III", "Chedderson",
-               "Chaiamson", "Dalesinger", "Ziglar", "Kissinger", "Fonzarelli", "Boop"]
-        },
-        {
-            salesUnits: ["3", "5", "4", "2", "8", "12", "1", "50", "1", "23", "67"]
-        }
+            employee: {
+                empNum: "1",
+                firstName: "Jane",
+                lastName: "Janeway",
+                salesInUnits: "3"
+            }
 
+        },
+        {
+            employee: {
+                empNum: "3",
+                firstName: "Tricia",
+                lastName: "Triciason",
+                salesInUnits: "5"
+            }
+        },
+        {
+            employee: {
+                empNum: "4",
+                firstName: "Jeannette",
+                lastName: "Jeanson",
+                salesInUnits: "4"
+            }
+        },
+        {
+            employee: {
+                empNum: "5",
+                firstName: "Charles Emmerson III",
+                lastName: "Winchester",
+                salesInUnits: "2"
+            }
+        },
+        {
+            employee: {
+                empNum: "6",
+                firstName: "Chet",
+                lastName: "Chedderson",
+                salesInUnits: "8"
+            }
+        },
+
+        {
+            employee: {
+                empNum: "7",
+                firstName: "Chaiam",
+                lastName: "Chaiamson",
+                salesInUnits: "12"
+            }
+        },
+
+        {   employee: {
+                empNum: "8",
+                firstName: "Dale",
+                lastName: "Dalesinger",
+                 salesInUnits: "1"
+            }
+        },
+        {
+             employee: {
+                empNum: "9",
+                firstName: "Zig",
+                lastName: "Ziglar",
+                 salesInUnits: "50"
+            }
+        },
+        {
+             employee: {
+                empNum: "10",
+                firstName: "Henry",
+                lastName: "Kissinger",
+                 salesInUnits: "1"
+            }
+        },
+        {
+             employee: {
+                empNum: "11",
+                firstName: "Arthur Herbert",
+                lastName: "Fonzarelli",
+                 salesInUnits: "23"
+            }
+        },
+        {
+             employee: {
+                empNum: "12",
+                firstName: "Betty",
+                lastName: "Boop",
+                 salesInUnits: "67"
+            }
+        }
         ]
 };
 
 console.log(salesReport);
 
 
-// Exercise 3. On the salesReport object you made, add the following methods.
-// getEmployeeCount() should return the total number of employees
-// getTotalNumberOfSales() should return the total number of units sold
-// getAverageSalesPerEmployee() should return the average units sold per employee
+// TODO: Exercise 3. On the salesReport object you made, add the following methods.
+// TODO: getEmployeeCount() should return the total number of employees
+// TODO: getTotalNumberOfSales() should return the total number of units sold
+// TODO: getAverageSalesPerEmployee() should return the average units sold per employee
+
+
 
 
 // Exercise 4. Go to https://gist.githubusercontent.com/ryanorsinger/f77e5ec94dbe14e21771/raw/d4a1f916723ca69ac99fdcab48746c6682bf4530/profiles.json
