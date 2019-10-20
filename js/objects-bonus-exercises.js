@@ -151,9 +151,15 @@ console.log(salesReport);
 // TODO: getTotalNumberOfSales() should return the total number of units sold
 // TODO: getAverageSalesPerEmployee() should return the average units sold per employee
 
+function getEmployeeCount(){
+    //return number of employees
+    return salesReport.employees.forEach(function(){
+        console.log("There are " + salesReport.employees.length + " employees.");
+    });
 
+}
 
-
+console.log(getEmployeeCount());
 // Exercise 4. Go to https://gist.githubusercontent.com/ryanorsinger/f77e5ec94dbe14e21771/raw/d4a1f916723ca69ac99fdcab48746c6682bf4530/profiles.json
 // then copy the JSON and assign it to a variable named profiles.
 
