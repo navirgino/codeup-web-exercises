@@ -114,10 +114,25 @@ function median(numbers){
     for(var i = 0; i < numbers.length; i++){
         sum += numbers[i];
     }
-    return ((sum / numbers.length)).toFixed(1) || 0;
+    return parseFloat((sum / numbers.length)) || 0;
+}
+*/
+
+function median(numbers){
+    var half = Math.floor(numbers.length/2.0);
+    if(numbers.length % 2){
+        return parseInt(numbers[half]).toFixed(1);
+    }else{
+        return parseInt(numbers[half-1]) + numbers[half] / 2.0;
+    }
+
+
 }
 
 
-console.log(median([1, 2, 3, 4, 5]));*/
+console.log(median([1, 2, 3, 4, 5])); //3.0
+console.log(median([1, 2, 3])); //2.0
+console.log(median([1, 5, 6])); //5.0
+console.log(median([1, 2 , 5 , 6])); //3.5
 
 
