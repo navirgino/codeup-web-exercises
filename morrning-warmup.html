@@ -247,7 +247,31 @@ console.log(lengthOfArray([1 , 2 , 3 , 4 , 5 , 6]));
     console.log(roundDownFloatNum(6.5));
     console.log(roundDownFloatNum("eggs"));
 </script>
+<script>
+    //if argument is 10 the function should log numbers 1 - 10
+    function count(num){
+        var s = "";
+        for(var i = 0; num >= i; i++){
+            s += i + 1;
+            if(i < (num)){
+                s +=', ';
+            }
+        }
+        return s;
+    }
+    console.log(count(7));
+    console.log(count(9));
+</script>
+<!--sophies-->
+<script>
+    function countUp(x){
+        for(var i = 1; x >= i; i++){
+            console.log(i);
+        }
+        return "Done counting!";
+    }
 
-
+    console.log(countUp(8));
+</script>
 </body>
 </html>

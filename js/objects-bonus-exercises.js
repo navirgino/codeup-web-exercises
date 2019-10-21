@@ -160,14 +160,46 @@ function getEmployeeCount(){
 
 console.log(getEmployeeCount());
 // TODO: getTotalNumberOfSales() should return the total number of units sold
-/*function getTotalNumberOfSales(){
-    //return total number of units sold
-    return salesReport.forEach(function(){
-        console.log("Total number of units sold " + tsalesReport.employees.employee.salesInUnits + ". ");
-    })
+
+/*function getTotalNumberOfSales(unit){
+    return salesReport.employees.employee.salesInUnits.forEach(function(){
+       console.log("The total number of units sold is: " + unit.reduce());
+    });
 }
 
+function getTotalNumber*/
+function getTotalNumberOfSales(){
+    var total = 0;
+    for(var i=0; i< this.length; i++){
+       total += this.salesInUnits[i];
+
+    }
+    return total;
+    console.log(total);
+}
+console.log(getTotalNumberOfSales());
+
+/*getTotalNumberOfSales = function(items, prop){
+    if(items == null){
+        return 0;
+    }
+    return items.reduce(function(a, b){
+        return b[prop] = null ? a : a + b[prop];
+    }, 0);
+};
+
 console.log(getTotalNumberOfSales());*/
+
+/*console.log(salesReport.employees.employee.salesInUnits);*/
+
+/*function getTotalNumberOfSales(arr){
+    return salesReport.employees.forEach(function(){
+        var newSum = arr.reduce();
+        return newSum;
+    });
+
+}*/
+
 
 // TODO: getAverageSalesPerEmployee() should return the average units sold per employee
 
