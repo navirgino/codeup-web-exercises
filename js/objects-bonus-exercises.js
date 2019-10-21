@@ -148,8 +148,7 @@ console.log(salesReport);
 
 // TODO: Exercise 3. On the salesReport object you made, add the following methods.
 // TODO: getEmployeeCount() should return the total number of employees
-// TODO: getTotalNumberOfSales() should return the total number of units sold
-// TODO: getAverageSalesPerEmployee() should return the average units sold per employee
+
 
 function getEmployeeCount(){
     //return number of employees
@@ -160,6 +159,20 @@ function getEmployeeCount(){
 }
 
 console.log(getEmployeeCount());
+// TODO: getTotalNumberOfSales() should return the total number of units sold
+/*function getTotalNumberOfSales(){
+    //return total number of units sold
+    return salesReport.forEach(function(){
+        console.log("Total number of units sold " + tsalesReport.employees.employee.salesInUnits + ". ");
+    })
+}
+
+console.log(getTotalNumberOfSales());*/
+
+// TODO: getAverageSalesPerEmployee() should return the average units sold per employee
+
+
+
 // Exercise 4. Go to https://gist.githubusercontent.com/ryanorsinger/f77e5ec94dbe14e21771/raw/d4a1f916723ca69ac99fdcab48746c6682bf4530/profiles.json
 // then copy the JSON and assign it to a variable named profiles.
 
