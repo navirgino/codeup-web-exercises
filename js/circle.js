@@ -3,8 +3,6 @@
 
     // create a circle object
     var circle = {
-        radius: 3,
-
         getArea: function () {
             // TODO: complete this method
             // hint: area = pi * radius^2
@@ -14,16 +12,19 @@
 
         },
 
+        radius: 3,
+
         logInfo: function (doRounding) {
             // TODO: complete this method.
-            var area = Math.pow(circle.radius, 2);
-            if(doRounding){
-                /*Math.round(Math.pow(circle.radius, 2))*/
-                Math.round(area);
+         /*   var area = Math.pow(circle.radius, 2);*/
+            var area = (doRounding) ? Math.round(this.getArea()) : this.getArea();
+            /*if(doRounding){
+                /!*Math.round(Math.pow(circle.radius, 2))*!/
+               area =  Math.round(this.getArea());
             }else{
-                console.log(area);
+                area = this.getArea();
 
-            }
+            }*/
 
             // If doRounding is true, round the result to the nearest integer.
             // Otherwise, output the complete value
