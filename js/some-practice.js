@@ -84,48 +84,18 @@ console.log(sumAll([3, 3, 3]));
 console.log(sumAll([0, 5, 6]));*/
 
 
-/*function mean(numbers) {
-    var sum = 0;
-    if(!numbers.length){
-        return sum;
+/*function median(numbers){
+    //get the median
+    //get the average value
+    var median = 0;
+    var numsLen = numbers.length;
+    numbers.sort();
+    if(numsLen%2===0){
+        median = (numbers[numsLen / 2.0 - 1.0] + numbers[numsLen / 2]) / 2.0;
+    }else {
+        median = parseFloat(numbers[(numsLen - 1.0) / 2.0]);
     }
-    for (var i = 0; i < numbers.length; i++); {
-        sum +=numbers[i];
-    }
-    return sum / numbers.length;
-}
-
-console.log(mean([1, 2, 3, 4]));*/
-
-/*function mean(numbers){
-    var sum = 0;
-    for(var i = 0; i < numbers.length; i++){
-        sum +=numbers[i];
-    }
-    return (sum / numbers.length) || 0;
-}
-console.log(mean([1, 2, 3, 4]));*/
-
-
-
-/*
-function median(numbers){
-    var sum = 0;
-    for(var i = 0; i < numbers.length; i++){
-        sum += numbers[i];
-    }
-    return parseFloat((sum / numbers.length)) || 0;
-}
-*/
-
-function median(numbers){
-    var half = Math.floor(numbers.length/2.0);
-    if(numbers.length % 2){
-        return parseInt(numbers[half]).toFixed(1);
-    }else{
-        return parseInt(numbers[half-1]) + numbers[half] / 2.0;
-    }
-
+    return median.toFixed(1);
 
 }
 
@@ -133,6 +103,58 @@ function median(numbers){
 console.log(median([1, 2, 3, 4, 5])); //3.0
 console.log(median([1, 2, 3])); //2.0
 console.log(median([1, 5, 6])); //5.0
-console.log(median([1, 2 , 5 , 6])); //3.5
+console.log(median([1, 2 , 5 , 6])); //3.5*/
+/*
 
+function maxMinusMin(numbers) {
+    var result = [];
+    for (var i = 0; i <= numbers.length; i++) {
+            result[i] = Math.max(numbers) - Math.min(numbers);
 
+    }
+}
+function getMin(number){
+
+    return Math.min.apply(null, number);
+}
+function getMax(number){
+
+    return Math.max.apply(null, number);
+}
+*/
+
+/*function maxMinusMin(numbers){
+    var max = Math.max.apply(null, numbers);
+    var min = Math.min.apply(null, numbers);
+    return max - min;
+}
+
+console.log(maxMinusMin([1,2,2,8,3,4])); //7*/
+
+/*
+function productOfAll(numbers) {
+   var p = 1;
+   for(var i = 0; i < numbers.length; i+=1){
+       p *= numbers[i];
+   }return p ;
+
+}
+
+console.log(productOfAll([1, 2, 3]));
+console.log(productOfAll([3, 4, 5]));
+console.log(productOfAll([2, 2, 3, 0]));
+*/
+
+function onlyOddNumbers(num){
+    var oddArr = [];
+    for (var i = 0; i < num.length; i++){
+        if((num[i]%2) !== 0){
+           return oddArr.push(num[i]);
+        }
+    }
+
+}
+
+console.log(onlyOddNumbers([1, 2, 3]));
+console.log(onlyOddNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]));
+console.log(onlyOddNumbers(-4, -3, -1));
