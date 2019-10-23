@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox Map API</title>
+    <link href = <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!--CUSTOM CSS DOWN BELOW-->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+<!--MAPBOX JS-->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<!--CUSTOM JS-->
+<script>
+    //TODO:1.) generate a map that show the city with your favorite restaurant using geocoding
+    /*####################*/
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/satellite-streets-v10',
+        zoom: 14,
+        center: [123.8854,10.3157],
+        number: 7
+    });
+    // geocode("4780 Ortigas Ave, Pasig, 1609 Metro Manila, Philippines", mapboxToken).then(function(result) {
+    //     console.log(result);
+    //     map.setCenter(result);
+    //     map.setZoom(20);
+    //     var myMarker = new mapboxgl.Marker(markerOptions)
+    //         .setLngLat(result)
+    //         .addTo(map)
+    //TODO:2.) redraw map of the location at zoom levels 5, 15, 20. do this by simply changing
+        //TODO:the value of zoom level where the map properties are initially set and refresh
+        //TODO:the page to see the changes. Can the zoom be changed programmatically after the
+        //TODO:initial map is drawn?
+    /*####################*/
+
+    //TODO:3.)Create a marker on your map of the exact location of your favorite restaurant
+        //TODO: set the zoom to allow for best viewing distance.
+    /*####################*/
+
+    //TODO:4.)Create a popup with the name of the restaurant
+        //TODO: Make sure the info window does not display until the marker has been clicked on.
+    /*####################*/
+
+    //TODO: 5.)Refactor your code to display at least three of your favorite restaurants with
+        //TODO: information about each. Create an array of objects with information about each restaurant
+        //TODO: to accomplish this. Use a .forEach() loop rather than a for loop.
+</script>
+</body>
+</html>
