@@ -145,16 +145,37 @@ console.log(productOfAll([3, 4, 5]));
 console.log(productOfAll([2, 2, 3, 0]));
 */
 
-function onlyOddNumbers(num){
-    var oddArr = [];
-    for (var i = 0; i < num.length; i++){
-        if((num[i]%2) !== 0){
-           return oddArr.push(num[i]);
+// function onlyOddNumbers(num){
+//     var oddArr = [];
+//     for (var i = 0; i < num.length; i++){
+//         if((num[i]%2) !== 0){
+//            return oddArr.push(num[i]);
+//         }
+//     }
+//
+// }
+// var odds = [];
+// var onlyOddNumbers = function(nums) {
+//     for (var i = 0; i < nums.length; i++) {
+//
+//         if ((nums[i] % 2) !== 0) {
+//             odds.push(nums[i]);
+//
+//         }
+//     }
+// }
+function onlyOddNumbers(arr){
+    for (var i = 0; i < arr.length; i++) {
+        while (arr[i] % 2 !== 0) {
+            // arr.splice(i, 1);
+
         }
     }
-
+    // return arr;
+    return arr[i];
 }
+
 
 console.log(onlyOddNumbers([1, 2, 3]));
 console.log(onlyOddNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]));
-console.log(onlyOddNumbers(-4, -3, -1));
+// console.log(onlyOddNumbers(-4, -3, -1,);
