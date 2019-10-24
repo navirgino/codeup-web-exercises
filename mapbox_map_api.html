@@ -3,14 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Mapbox Map API</title>
-    <link href = <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
     <!--CUSTOM CSS DOWN BELOW-->
+
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
     <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
         #map {
             /* the width and height may be set to any size */
+            /*position:absolute;*/
+            top: 0;
+            bottom: 0;
             width: 100%;
             height: 700px;
         }
+
+        .img {
+
+        }
+
+
     </style>
 </head>
 <body>
@@ -22,7 +39,10 @@
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src="js/keys.js"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
-<!--CUSTOM JS-->
+
+
+
+
 <script>
     //TODO:1.) generate a map that show the city with your favorite restaurant using geocoding
     /*####################*/
@@ -30,34 +50,141 @@
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/satellite-streets-v10',
-        zoom: 14,
-        center: [123.8854,10.3157],
-        number: 7
+        // style: 'mapbox://styles/mapbox/streets-v11',
+        // zoom: 8,
+        center: [123.900038, 10.320270],
+        number: 4
+
     });
-    // geocode("4780 Ortigas Ave, Pasig, 1609 Metro Manila, Philippines", mapboxToken).then(function(result) {
+    map.addControl(new mapboxgl.NavigationControl());
+
+    // var restaurant = geocode("Acacia Street, Cebu City 6000 Philippines", mapboxToken).then(function(result) {
     //     console.log(result);
-    //     map.setCenter(result);
-    //     map.setZoom(20);
-    //     var myMarker = new mapboxgl.Marker(markerOptions)
-    //         .setLngLat(result)
-    //         .addTo(map)
+    // });
+
+
+    /*####################*/
     //TODO:2.) redraw map of the location at zoom levels 5, 15, 20. do this by simply changing
-        //TODO:the value of zoom level where the map properties are initially set and refresh
-        //TODO:the page to see the changes. Can the zoom be changed programmatically after the
-        //TODO:initial map is drawn?
+    //TODO:the value of zoom level where the map properties are initially set and refresh
+    //TODO:the page to see the changes. Can the zoom be changed programmatically after the
+    //TODO:initial map is drawn?
     /*####################*/
 
+
+
+
+    /*####################*/
     //TODO:3.)Create a marker on your map of the exact location of your favorite restaurant
-        //TODO: set the zoom to allow for best viewing distance.
+    //TODO: set the zoom to allow for best viewing distance.
     /*####################*/
+    // marker below
 
+    var markerOptions = {
+        color: "#ff0000",
+        draggable: true,
+        default: {
+            maxZoom: 1
+        }
+    };
+    var marker = new mapboxgl.Marker(markerOptions)
+        .setLngLat([123.900038, 10.320270])
+        .addTo(map);
+
+
+
+
+
+    /*####################*/
     //TODO:4.)Create a popup with the name of the restaurant
-        //TODO: Make sure the info window does not display until the marker has been clicked on.
-    /*####################*/
+    //TODO: Make sure the info window does not display until the marker has been clicked on.
 
+    /*####################*/
+    var popup = new mapboxgl.Popup()
+        .setLngLat([123.900038, 10.320270])
+        .setHTML("<p class= img><em><img src = img/lechon.jpeg><br>Lechon!</em></p>")
+        .addTo(map);
+    marker.setPopup(popup);
+
+    // var popup2 = new mapboxgl.Popup()
+    //     .setLngLat([-98.464245, 29.464315])
+    //     .setHTML("<p class= img><em><img src = img/jimd.jpeg></em></p>")
+    //     .addTo(map);
+    // marker.setPopup(popup2);
+    //
+    // var popup3 = new mapboxgl.Popup()
+    //     .setLngLat([144.922503, -37.768745])
+    //     .setHTML("<p class= img><em><img src = img/abbey.jpeg></em></p>")
+    //     .addTo(map);
+    // marker.setPopup(popup3);
+
+
+
+
+    /*####################*/
     //TODO: 5.)Refactor your code to display at least three of your favorite restaurants with
-        //TODO: information about each. Create an array of objects with information about each restaurant
-        //TODO: to accomplish this. Use a .forEach() loop rather than a for loop.
+    //TODO: information about each. Create an array of objects with information about each restaurant
+    //TODO: to accomplish this. Use a .forEach() loop rather than a for loop.
+    /*####################*/
+    var restaurants = [
+        {
+            houseOfLechon: {
+                popupHTML: "House of Lechon",
+                location: "Acacia Street, Cebu City 6000 Philippines"
+
+
+            }
+
+        },
+        {
+            jims: {
+                // coordinate: [-98.464245, 29.464315],
+                name: "Jim's",
+                location: "4108 Broadway St, San Antonio, TX 78209"
+
+            }
+        },
+        {
+            abbey: {
+                // coordinate: [144.922503, -37.768745],
+                name: "Dear Abbey Cafe",
+                location: "23A Gladstone St, Moonee Ponds VIC 3039, Australia"
+
+            }
+        }
+    ];
+    // restArray.forEach(function(rest){
+    //     console.log(rest);
+    //
+    //     geocode(rest.address, mapboxToken).then(function(location){
+    //        var popup = new mapboxgl.Popup()
+    //            .setHTML(location.location)
+    //     });
+    // });
+    function showRestaurants(result){
+        restaurants.forEach(function(){
+            console.log(result);
+
+            geocode(result, mapboxToken).then(function(result) {
+                console.log(result);
+                map.setCenter(result);
+
+                var myMarker = new mapboxgl.Marker(markerOptions)
+                    .setLngLat(result)
+                    .addTo(map)
+                    .togglePopup();
+            // new mapboxgl.Marker(markerOptions)
+            //     .setLngLat(value.location)
+            //     .addTo(map);
+            });
+        });
+    }
+
+    // console.log(showRestaurants());
+    showRestaurants();
+
+
+    /*####################*/
 </script>
+<!--CUSTOM JS-->
 </body>
 </html>
