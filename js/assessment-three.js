@@ -30,7 +30,7 @@ isPositive(0); // false
 
 function removeElement(arr, instance){
     var index = arr.indexOf(instance);
-    console.log(index);
+
     var newArr = arr.slice(0, index)/*.concat(arr.slice(index + 1))*/;
     // console.log(newArr);
     //so here we are slicing 0 at the index
@@ -77,7 +77,7 @@ function evensIndex(arr){
             console.log(arr.indexOf());
             evenArr.indexOf(arr[i]);
     }
-    console.log(evenArr);
+
 }
 
 console.log(evensIndex([1, 2, 3, 4, 5, 6])); // returns [1,3,5]
@@ -86,20 +86,20 @@ console.log(evensIndex([5, 5, 7, 13])); // returns []
 
 //Write a function 'stringToArray' that takes in a comma separated list and
 // returns it as an array.
-function stringToArray(){
-
+function stringToArray(str){
+    return str.split(',');
 }
 
-stringToArray("red,orange,yellow,green,blue"); // returns ['red','orange', 'yellow','green','blue']
-stringToArray("1,2,3"); // returns ['1','2','3']
-stringToArray("dog"); // returns ['dog']
+console.log(stringToArray("red,orange,yellow,green,blue")); // returns ['red','orange', 'yellow','green','blue']
+console.log(stringToArray("1,2,3")); // returns ['1','2','3']
+console.log(stringToArray("dog"));// returns ['dog']
 
 // Given the following array of objects, write a function 'findUsers' that
 // returns
 //  an
 // Array of usernames.
 
-/*var myMac = {};
+var myMac = {};
 myMac.users = [
     {
         username: "sophie",
@@ -115,13 +115,22 @@ myMac.users = [
     }
 ];
 
-findUsers(myMac.users);*/ // returns ['sophie','vivian','david']
+
+console.log(myMac.users); // returns ['sophie','vivian','david']
+console.log(myMac.users[0].username);
+
+
+    var findUsers = myMac.users.map(function(a){
+       return a.username;
+    });
+console.log(findUsers);
+
 
 //- Write a function 'addRole' that accepts the array of objects, then adds the
 //  property 'role' to each object with a value of 'instructor.' The
 //  results should look like this:
-/*
-addRole("instructor");
+
+/*addRole("instructor");
 
 [
     {
@@ -139,15 +148,33 @@ addRole("instructor");
         id: 3,
         role: "instructor"
     }
+
 ];*/
+
+// console.log(addRole());
+
 
 //- Write a function 'countLetters' that takes in a string and a character, and
 //counts the number of instances of that character in the string.
+var countLetters = (function(str, char){
+    var result = 0;
+    for(var i = 0; i<str.length;i++){
+        if(str.toUpperCase().charAt(i) === char.toUpperCase() ||
+        (str.toLowerCase().charAt(i) === char.toLowerCase())){
+            result++
+        }
+    }return result;
 
-//countLetters("banana", "a"); // returns 3
-//countLetters("Bob", "b");// returns 2
-//countLetters("javascript", "x"); // returns 0
-//
+});
+
+
+console.log(countLetters("banana", "a")); // returns 3
+console.log(countLetters("Bob", "b"));// returns 2
+console.log(countLetters('oOoOoOoCcCc',"o"));
+console.log(countLetters("javascript", "x")); // returns 0
+
+
+
 ////- Write a function 'countAll' that takes in an array of strings and returns an
 //// array with the count of a character for each string. You may be able to use
 //// your countLetters function here.
