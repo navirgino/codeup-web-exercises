@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Exercises</title>
+</head>
+<body>
+<h1 id="header">My favorite tings</h1>
+<button id="btn1">press diz</button>
+<button id='btn2'>or diz</button>
+<br>
+<div id='container'>
+
+    <div id="list">
+        <ul class="interests">
+            <hr>
+            <li class="interest">
+                <ul>
+                    <li class="li-header">Pokémon:</li>
+                    <p>I like pokez</p>
+                    <li>Cubone</li>
+                    <li>Dratini</li>
+                    <li>Glaceon</li>
+                </ul>
+            </li>
+            <hr>
+            <li class="interest">
+                <ul>
+                    <li class="li-header">Basketball Players Of All Time:</li>
+                    <p>I like basketzz</p>
+                    <li>Tim Duncan</li>
+                    <li>Dennis Rodman</li>
+                    <li>Kevin Durant</li>
+                </ul>
+
+            </li>
+            <hr>
+            <li class="interest">
+                <ul>
+                    <li class="li-header">Clothing Brands:</li>
+                    <p>i like clothz</p>
+                    <li>To Boot New York</li>
+                    <li>Ksubi</li>
+                    <li>NEUW Jeans</li>
+                </ul>
+
+            </li>
+            <hr>
+            <li class="interest">
+                <ul>
+                    <li class="li-header">Vidya:</li>
+                    <p>i lyk vidya gam3z</p>
+                    <li>City of Heroes</li>
+                    <li>Pokémon</li>
+                    <li>Super Smash Bros.</li>
+
+                </ul>
+            </li>
+
+            <hr>
+        </ul>
+
+    </div>
+
+
+</div>
+
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+    $(document).ready(function () {
+        $('body').css({
+            'background-color' : 'grey'
+        });
+        $('.interests ul').hide();
+
+        $('.interest').css({
+            'background-color': 'blue',
+            'color': 'white',
+            'box-shadow': '5px 5px 5px black'
+
+        }).click(function () {
+            $(this).find('ul').slideToggle();
+        });
+        $('#container').css({'background-color': 'white'});
+
+        $('#btn1').click(function () {
+            $("#list").animate({
+                marginLeft: '.6in'
+            })
+        });
+        $('#btn2').click(function () {
+            $('#list').animate({
+                marginRight: '.10in'
+            })
+        });
+
+        //get next element
+
+        $('h1').css({
+            'background-color': 'pink'
+        })
+    });
+</script>
+</body>
+</html>
