@@ -329,8 +329,46 @@ console.log(lengthOfArray([1 , 2 , 3 , 4 , 5 , 6]));
         console.log('RAAAAAAAAAA!!!!');
     };
 
+</script>
+<script>
+    var shoppingCarts = [
+        {
+            apples: 8,
+            bananas: 2,
+            oranges: 4,
+            grapes: 24
+        }, {
+            apples: 3,
+            bananas: 6,
+            oranges: 8,
+            grapes: 12
+        } , {
+            apples: 0,
+            bananas: 12,
+            oranges: 0,
+            grapes: 0
+        } , {
+            apples: 4,
+            bananas: 0,
+            oranges: 12,
+            grapes: 10
+        }
+    ];
+    function mostOranges(carts){
+        var solution = [];
+        var winner= carts[0];
+        var winningI = -1;
+       carts.forEach(function(cart, index) {
+           if(cart.oranges > winner.oranges){
+               winner = cart;
+               winningI = index;
+           }
+       });
+       solution.push(winner, winningI);
+       return winner;
+    }
 
-
+    console.log(mostOranges(shoppingCarts));
 </script>
 </body>
 </html>
