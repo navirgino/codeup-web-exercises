@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Cheat Codes</h1>
+<div id = ryu><img src="img/ryu.gif"></div>
+<div id= rightKey></div>
+
+
+<!--pararaphs need to have a font size of 18px when double clicked-->
+<!--set all li text color to red when the mouse is hovering; reset to black when it is not-->
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+    $(document).ready(function () {
+        var konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+            'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+            'b', 'a'];
+        var kCodePos = 0;
+
+        $(document).keydown(function (e) {
+            var keyStroke = e.key;
+            if(keyStroke === konamiCode[kCodePos]){
+                $('#ryu').html("");
+                $('#rightKey').html('<img src="img/vintage-pokeball.gif" alt="">');
+                console.log(keyStroke);
+                kCodePos++;
+            }else if(keyStroke !== konamiCode[kCodePos]){
+                $('#rightKey').html("");
+                console.log('Sry');
+            }else{
+                $('#rightKey').html('<img src="img/vintage-pokeball.gif" alt="">');
+                kCodePos=0;
+            }
+        });
+
+    });
+</script>
+</body>
+</html>
