@@ -64,54 +64,138 @@
     $(document).keydown(function (p) {
         var keyStroke = p.key;
 
+        var pokeaudio = new Audio('audio/success.mp3');
+        var evilAudio = new Audio('audio/wildpokemon.mp3');
+        var audio = new Audio('audio/welcome-trainer.mp3');
 
         if (keyStroke === profOak[profPos]) {
             profPos++;
             console.log(keyStroke);
             $("#empty").html("");
             $("#img-area").html('<img src="img/oakblueintro.png" alt="">');
-            var audio = new Audio('audio/welcome-trainer.mp3');
-            audio.play();
 
-        }else if (keyStroke !== profOak[profPos] || keyStroke || profOakAgain[profOakAgainPos]) {
+            audio.play();
+        }
+        if (keyStroke !== profOak[profPos]) {
             profPos = 0;
 
             $("#empty").html("");
             $(" h1 ").html("Hurry type in the Konami code to catch the pokemon!!!");
             $("#img-area").html('<img src="img/techisevil.gif" alt="">');
+            evilAudio.play();
             setTimeout(function () {
-                var evilAudio = new Audio('audio/wildpokemon.mp3');
                 evilAudio.play();
                 setTimeout(function () {
                     evilAudio.pause();
                     evilAudio.currentTime = 0;
+
                 }, 8000)
             }, 500);
+        }
+        if (keyStroke === konamiCode[kCodePos]) {
+            $('#empty').html("");
+            $('#img-area').html('<img src="img/retrowiggle.gif" alt="">');
+            console.log(keyStroke);
+            /*Timeout nested function*/
+
+            setTimeout(function () {
+                console.log("in set timeout");
+                var pokewiggle = new Audio('audio/pokeballwiggle.mp3');
+                pokewiggle.play();
+                setTimeout(function () {
+                    pokewiggle.pause();
+                    pokewiggle.currentTime = 0;
+
+                }, 500)
+            }, 500);
+            kCodePos++;
+        }
+        if (kCodePos === konamiCode.length) {
+
+            pokeaudio.play();
+            $('#empty').html("");
+            $('#img-area').html('<img src="img/succespokeball.jpeg" alt="">');
+
 
         }
-        // if (keyStroke === konamiCode[kCodePos]) {
-        //     console.log(keyStroke);
-        //     evilAudio.pause();
-        //     $('#empty').html("");
-        //     $('#img-area').html('<img src="img/retrowiggle.gif" alt="">');
-        //
-        //     setTimeout(function () {
-        //         console.log("in set timeout");
-        //         var pokewiggle = new Audio('audio/pokeballwiggle.mp3');
-        //         pokewiggle.play();
-        //         setTimeout(function () {
-        //             pokewiggle.pause();
-        //             pokewiggle.currentTime = 0;
-        //
-        //         }, 500)
-        //     }, 500);
-        //     kCodePos++;
-        //
-        // }
+        if (keyStroke !== konamiCode[kCodePos]) {
+            kCodePos = 0;
+            // $('#keyarea').html("");
+            $('#empty').html("");
+            $('#img-area').html('<img src="img/failed-capture.gif" alt="">');
+            var pokeoops = new Audio('audio/pokeballOUT.mp3');
+            pokeoops.play();
+            console.log('sry')
+        } else {
+
+            $('#img-area').html("");
+
+        }
+
+    // }else if (keyStroke !== profOak[profPos]) {
+    //     profPos = 0;
+    //
+    //     $("#empty").html("");
+    //     $(" h1 ").html("Hurry type in the Konami code to catch the pokemon!!!");
+    //     $("#img-area").html('<img src="img/techisevil.gif" alt="">');
+    //     evilAudio.play();
+    //     //     setTimeout(function () {
+    //     //
+    //     //         evilAudio.play();
+    //     //
+    //     //         setTimeout(function () {
+    //     //             evilAudio.pause();
+    //     //
+    //     //             evilAudio.currentTime = 0;
+    //     //
+    //     //         }, 8000)
+    //     //     }, 500);
+    //     // }
+    // }
+    //     if (keyStroke === konamiCode[kCodePos]) {
+    //         console.log(keyStroke);
+    //         evilAudio.pause();
+    //
+    //         $('#empty').html("");
+    //         $('#img-area').html('<img src="img/retrowiggle.gif" alt="">');
+    //
+    //         setTimeout(function () {
+    //             console.log(keyStroke);
+    //             var pokewiggle = new Audio('audio/pokeballwiggle.mp3');
+    //             pokewiggle.play();
+    //             setTimeout(function () {
+    //                 pokewiggle.pause();
+    //                 pokewiggle.currentTime = 0;
+    //
+    //             }, 500)
+    //         }, 500);
+    //         kCodePos++;
+    //
+    //     }else if (kCodePos === konamiCode.length) {
+    //                 var pokeaudio = new Audio('audio/success.mp3');
+    //                 pokeaudio.play();
+    //                 $('#key-area').html('<img src="img/succespokeball.jpeg" alt="">');
+    //
+    //
+    //             }else if (keyStroke !== konamiCode[kCodePos]) {
+    //                 kCodePos = 0;
+    //                 // $('#keyarea').html("");
+    //                 $('#img').html("");
+    //                 $('#key-area').html('<img src="img/failed-capture.gif" alt="">');
+    //                 var pokeoops = new Audio('audio/pokeballOUT.mp3');
+    //                 pokeoops.play();
+    //                 console.log('sry')
+    //
+    //
+    //             } else {
+    //
+    //                 $('#key-area').html("");
+    //
+    //             }
 
 
-
-    });
+    // })
+    // ;
 
     // var konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
     //     'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
