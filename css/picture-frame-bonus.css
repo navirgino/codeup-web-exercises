@@ -1,18 +1,38 @@
+.container {
+
+
+
+}
 .square {
     float: left;
     position: relative;
-    width: 30%;
-    padding-bottom: 30%;
-    margin: 1.66%;
+    height: 200px;
+    width: 200px;
+    padding: 20px;
+    margin: 20px;
+    /*width: 30%;*/
+    /*padding-bottom: 30%;*/
+    /*margin: 1.66%;*/
     overflow: hidden;
     border: 1px solid black;
 }
 
-.content {
+/*.content {*/
+/*    position: absolute;*/
+/*    height: 80%;*/
+/*    width: 50%;*/
+/*    padding: 10% 5%;*/
 
-    position: absolute;
-    height: 80%;
-    width: 50%;
-    padding: 10% 5%;
+/*}*/
 
+#cell-one {
+    background-color: black;
+
+}
+#cell-two {
+    background-color: coral;
+
+}
+#cell-three{
+    background-color: blue;
 }
