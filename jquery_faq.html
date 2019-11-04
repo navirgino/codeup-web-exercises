@@ -11,31 +11,33 @@
         visibility: hidden;
 
     }
+
     #container {
-        box-sizing:  border-box;
+        box-sizing: border-box;
         grid-area: 1 / 1 / 1 / 1;
     }
+
     .box {
-        box-sizing:  border-box;
+        box-sizing: border-box;
         border: solid black 2px;
-        padding: 1em;
+        padding-bottom: 30%;
         margin: 1em;
-        width: 200px;
+        width: 30%;
         height: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
 
     }
+
     #one {
         grid-area: red;
         background: lightcoral;
     }
+
     #two {
         grid-area: black;
         background: blue;
     }
+
     #three {
         grid-area: black;
         background: green;
@@ -129,25 +131,23 @@
 </div>
 
 
-
-
-
 <button id="yellow-bg">Makes last li in each ul have a yellow background</button>
+
+<!--#######################################################-->
 <div id="container">
-    <div class="box" id="one">
-        <button class = 'btn' id="btn1"></button>
-    </div>
+    <div class="box" id="one"></div>
+    <button class='btn' id="btn1">Left</button>
 
-    <div class="box" id="two">
-        <button class = 'btn' id="btn2"></button>
-    </div>
 
-    <div class="box" id="three">
-        <button class = 'btn' id="btn3"></button>
-    </div>
+    <div class="box" id="two"></div>
+    <button class='btn' id="btn2">Middle</button>
+
+    <div class="box" id="three"></div>
+    <button class='btn' id="btn3">Right</button>
+
 
 </div>
-
+<!--#######################################################-->
 
 <!--Update the page with jQuery to add a link that toggles the class invisible
  on and off for all dd elements.-->
@@ -167,25 +167,25 @@
             });
         });
 
-/*When any h3 is clicked, the lis underneath it should be bolded.
-Use font-weight: bold to achieve this.*/
+        /*When any h3 is clicked, the lis underneath it should be bolded.
+        Use font-weight: bold to achieve this.*/
         $(' h3 ').click(function () {
             $(this).next().children().css('font-weight', 'bold');
         })
     });
-/*When any list item is clicked, first li of the parent ul should
- have a font color of blue.*/
-        $(' li ').click(function () {
-            $(this).parent().children().first().css('color', 'blue');
-        });
-/*left frame swaps to the right and
- takes the image from the frame in the center*/
-        $(' .btn ').click(function(){
-            $('#container').children().first().css({
-                'display' : 'flex',
-                'justify-content' : 'flex-right'
-            })
+    /*When any list item is clicked, first li of the parent ul should
+     have a font color of blue.*/
+    $(' li ').click(function () {
+        $(this).parent().children().first().css('color', 'blue');
+    });
+    /*left frame swaps to the right and
+     takes the image from the frame in the center*/
+    $(' .btn ').click(function () {
+        $('#container').children().first().css({
+            'display': 'flex',
+            'justify-content': 'flex-right'
         })
+    })
 
 
 </script>
