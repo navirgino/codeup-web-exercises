@@ -4,47 +4,62 @@
 
     <meta charset="UTF-8">
     <title>Jquery FAQ About National Parks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
 </head>
 <style>
+    body {
+        background-color: lightblue;
+
+    }
     .invisible {
         visibility: hidden;
 
     }
 
-    #container {
-        box-sizing: border-box;
-        grid-area: 1 / 1 / 1 / 1;
+
+    #news {
+        box-shadow: 5px 10px black;
+        padding-bottom: 1em;
+        margin-bottom: 100px;
+        display: none;
+        border: 1px solid black;
     }
 
-    .box {
-        box-sizing: border-box;
-        border: solid black 2px;
-        padding-bottom: 30%;
-        margin: 1em;
-        width: 30%;
-        height: 200px;
-
-
+    #newsletter-x {
+        float: right;
     }
 
-    #one {
-        grid-area: red;
-        background: lightcoral;
-    }
-
-    #two {
-        grid-area: black;
-        background: blue;
-    }
-
-    #three {
-        grid-area: black;
-        background: green;
-    }
 </style>
 
 <body>
+
+<div class="alert alert-warning alert-dismissible" role="alert" id=news>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true" id ='newsletter-x'>x</span></button>
+    <h2 id="newsletter">Would you like to sign up for our newsletter?</h2>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade d-flex justify-content-center" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Hello world, bootstrap and jquery</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                Modal body n stuff
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <dl>
     <dt>National Park FAQ</dt>
@@ -104,7 +119,6 @@
 <div id="list">
     <h3>Park</h3>
     <ul>
-
         <li>fact 1</li>
         <li>fact 2</li>
         <li>fact 3</li>
@@ -134,27 +148,31 @@
 <button id="yellow-bg">Makes last li in each ul have a yellow background</button>
 
 <!--#######################################################-->
-<div id="container">
-    <div class="box" id="one"></div>
-    <button class='btn' id="btn1">Left</button>
-
-
-    <div class="box" id="two"></div>
-    <button class='btn' id="btn2">Middle</button>
-
-    <div class="box" id="three"></div>
-    <button class='btn' id="btn3">Right</button>
-
-
-</div>
-<!--#######################################################-->
 
 <!--Update the page with jQuery to add a link that toggles the class invisible
  on and off for all dd elements.-->
 <script src="js/jquery-2.2.4.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
 <script>
     "use strict";
     $(document).ready(function () {
+        setTimeout(function () {
+            $('#news').fadeIn('slow');
+        }, 8000);
+
+
+        setTimeout(function(){
+            $('#myModal').modal();
+        }, 1000);
+
+
+
+
         $(' #show-faq ').click(function (event) {
             event.preventDefault();
             $('.invisible').toggleClass('invisible');
@@ -165,6 +183,8 @@
             $("ul").each(function () {
                 $(this).children().last().css('background-color', '#FF0');
             });
+
+
         });
 
         /*When any h3 is clicked, the lis underneath it should be bolded.
@@ -185,7 +205,11 @@
             'display': 'flex',
             'justify-content': 'flex-right'
         })
-    })
+    });
+
+    $(' h3 ').click(function () {
+        $(this).next().slideToggle();
+    });
 
 
 </script>
