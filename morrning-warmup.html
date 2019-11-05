@@ -529,4 +529,20 @@ for the parameter-->
     var randomNum = Math.floor(Math.random() * 10) + 1;
     console.log(numAsWord(randomNum));
 </script>
+<script>
+    var newObj = {
+        gratitude: "You're Welcome"
+    };
+    function yaWelcome(gratitude){
+        if (gratitude === "Thank You"){
+            return newObj.gratitude;
+
+        } else{
+           return "Hell naw"
+        }
+    }
+
+    console.log(yaWelcome("Thank You"));
+    console.log(yaWelcome("mane hail naw"))
+</script>
 </html>

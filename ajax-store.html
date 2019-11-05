@@ -2,12 +2,14 @@
 <html>
 <head>
     <title>Online Store</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <style>
         body {
-            background-color: black;
+            background-color: gray;
         }
+
         th {
             /*padding: .5em;*/
             width: 30%;
@@ -16,14 +18,21 @@
             border-left: 1px solid black;
             font-size: 30px;
         }
-        table , td {
+
+        table, td {
             border: 1px solid black;
         }
+
         h2 {
             color: white;
         }
 
+        .tableInput {
+            display: flex;
+            justify-content: center;
+        }
     </style>
+
 </head>
 <body>
 <header>
@@ -36,7 +45,9 @@
         </div>
         <nav class="navbar navbar-dark bg-dark">
             <h2>My Tool Store</h2>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </nav>
@@ -50,7 +61,7 @@
     <div id="main">
         <thead>
         <tr>
-            <th scope="col" id="title">Title</th>
+            <th scope="col" id="title">Item</th>
             <th scope="col" id="quantity">Quantity</th>
             <th scope="col" id="price">Price</th>
             <th scope="col" id="categories">Categories</th>
@@ -59,24 +70,61 @@
     </div>
 
     <tbody id="insertProducts">
-
-    <button type='button' class='btn btn-dark mb-2' id=refresh>Re-presh</button>
-
     </tbody>
-
 </table>
 
+<button type='button' class='btn btn-dark mb-2' id=refresh>Re-presh</button>
+<!--button modal down below-->
+<button type='button' class='btn btn-dark mb-2' id=addNewItem data-toggle="modal" data-target="#myModal">Add new
+    inventory
+</button>
+<!--modal-->
+<div id='myModal' class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <!--modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
 
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+                <!--insert inputs here-->
+                <form>
+                    Tool: <input type="text" name="tool" class="tableInput" id="myTool">
+                    Quantity: <input type="text" name="quantity" class="tableInput" id="myQuantity">
+                    Price: <input type="text" name="price" class="tableInput" id="myPrice">
+                    Categories: <input type="text" name="categories" class="tableInput" id="myCategories">
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id=saveItem type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
 
 <script>
     (function () {
         "use strict";
         // TODO: Create an ajax GET request for /data/inventory.json
+
         $.ajax("data/inventory.json").done(function (data) {
             console.log(data);
         });
@@ -84,6 +132,9 @@
         //       HINT: Your data should come back as a JSON object; use console.log() to inspect
         //             its contents and fields
         //       HINT: You will want to target #insertProducts for your new HTML elements'
+
+
+        /*append function / if else append below*/
         function generateInventory() {
 
             var requestInventory = $.ajax('data/inventory.json');
@@ -92,10 +143,22 @@
 
                 console.log(data);
                 $.each(data, function (index, item) {
-                   $('#insertProducts').append("<tr><td>" + item.title + " </td>" +
-                   "<td>" + item.quantity + "</td>"
-                   + "<td>" + item.price + "</td>"
-                   + "<td>" + item.categories.join(', ') +"</td>")
+                    if (item.quantity <= 5) {
+                        $('#insertProducts').append("<tr><td>" + item.title + " </td>" +
+                            "<td class='bg-danger'>" + item.quantity + "</td>"
+                            + "<td>" + item.price + "</td>"
+                            + "<td>" + item.categories.join(', ') + "</td>")
+                    } else if (item.quantity > 5) {
+                        $('#insertProducts').append("<tr><td>" + item.title + " </td>" +
+                            "<td class='bg-success'>" + item.quantity + "</td>"
+                            + "<td>" + item.price + "</td>"
+                            + "<td>" + item.categories.join(', ') + "</td>")
+                    } else {
+                        $('#insertProducts').append("<tr><td>" + item.title + " </td>" +
+                            "<td>" + item.quantity + "</td>"
+                            + "<td>" + item.price + "</td>"
+                            + "<td>" + item.categories.join(', ') + "</td>")
+                    }
 
                 });
             });
@@ -104,6 +167,7 @@
             });
 
         }
+
         //call the function generate data on page load
         generateInventory();
 
@@ -113,6 +177,66 @@
 
             generateInventory();
         });
+
+        //function below adds a new item into the json
+        function addItem() {
+            var newObj = {};
+            newObj.title = newObjName.value;
+            newObj.quantity = newObjQuantity.value;
+            newObj.price = newObjPrice.value;
+            newObj.categories = newObjCategories.value;
+            console.log(newObj);
+            if (newObj.quantity <= 5) {
+                $('#insertProducts').append("<tr><td>" + newObj.title + " </td>" +
+                    "<td class='bg-danger'>" + newObj.quantity + "</td>"
+                    + "<td>" + newObj.price + "</td>"
+                    + "<td>" + newObj.categories + "</td>")
+            }
+
+            else if (newObj.quantity > 5) {
+                $('#insertProducts').append("<tr><td>" + newObj.title + " </td>" +
+                    "<td class='bg-success'>" + newObj.quantity + "</td>"
+                    + "<td>" + newObj.price + "</td>"
+                    + "<td>" + newObj.categories + "</td>")
+            }
+            //
+            // if(typeof newObj.title === "number"){
+            //     $('#insertProducts').append("<tr><td class='bg-danger'>" + newObj.title + " </td>" +
+            //         "<td>" + newObj.quantity + "</td>"
+            //         + "<td>" + newObj.price + "</td>"
+            //         + "<td>" + newObj.categories + "</td>")
+            // }
+            //
+            // if(typeof newObj.price === "string") {
+            //     $('#insertProducts').append("<tr><td>" + newObj.title + " </td>" +
+            //         "<td>" + newObj.quantity + "</td>"
+            //         + "<td class='bg-danger'>" + newObj.price + "</td>"
+            //         + "<td>" + newObj.categories + "</td>")
+            // }
+            //
+            // if(typeof newObj.categories === "number") {
+            //     $('#insertProducts').append("<tr><td>" + newObj.title + " </td>" +
+            //         "<td>" + newObj.quantity + "</td>"
+            //         + "<td>" + newObj.price + "</td>"
+            //         + "<td class='bg-danger'>" + newObj.categories + "</td>")
+            // }
+            else {
+                $('#insertProducts').append("<tr><td>" + newObj.title + " </td>" +
+                    "<td>" + newObj.quantity + "</td>"
+                    + "<td>" + newObj.price + "</td>"
+                    + "<td>" + newObj.categories + "</td>")
+            }
+        }
+
+        //variables for new obj
+        var newObjName = document.querySelector("#myTool");
+        var newObjQuantity = document.querySelector("#myQuantity");
+        var newObjPrice = document.querySelector("#myPrice");
+        var newObjCategories = document.querySelector("#myCategories");
+
+        //docs for stuff with add item
+        document.getElementsByClassName("tableInput").value;
+        document.getElementById("saveItem").addEventListener("click", addItem);
 
     })();
 </script>

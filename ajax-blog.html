@@ -3,46 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajax Blog</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Jomolhari&display=swap" rel="stylesheet">
 
-<style>
-body {
-    background-color: black;
-}
-</style>
+
+    <style>
+        body {
+            background-color: black;
+        }
+
+        #myBlog, h1 {
+            font-size: 40px;
+            font-family: 'Jomolhari', serif;
+        }
+
+        h5 {
+            font-family: 'Jomolhari', serif;
+            font-size 15px;
+        }
+    </style>
 </head>
 <body>
+<nav class="navbar navbar-light bg-light p-0">
+
+    <a class="navbar-brand" id="myBlog" href="#">
+        Welcome to my blog!
+    </a>
+</nav>
+
 <div id="posts" class="jumbotron jumbotron-fluid mb-3 mt-3">
+
     <div class="container">
+
         <div class="blog-zone">
         </div>
+
+
     </div>
+
 </div>
 
 <script src="js/jquery-2.2.4.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 <script>
+/*nav bar stuff*/
 
 
     function generateBlogPosts() {
-        var getBlog =  $.ajax("data/blog.json");
-            getBlog.done(function(data){
+
+        var getBlog = $.ajax("data/blog.json");
+
+        getBlog.done(function (data) {
             console.log(data);
             $.each(data, function (index, post) {
 
-                $('.blog-zone').append("<h1>" + post.title + "</h1>" +
+                $('.blog-zone').append("<h1>" + post.title + "</h1>"
                     + "<p>" + post.content + "</p>"
                     + "<h5>" + post.categories.join(', ').toUpperCase() + "</h5>"
                     + "<footer class=\"blockquote-footer\"><em>" + post.date + "</em><hr></footer>")
             })
         });
-            getBlog.fail(function() {
-                console.log('nope not this time')
-            })
+        getBlog.fail(function () {
+            console.log('nope not this time')
+        })
     }
+
     //call function to generate data on page load
     generateBlogPosts();
+
+
 
 </script>
 </body>
