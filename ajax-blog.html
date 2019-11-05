@@ -3,16 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajax Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<style>
+body {
+    background-color: black;
+}
+</style>
 </head>
 <body>
-<div id="posts">
-
+<div id="posts" class="jumbotron jumbotron-fluid mb-3 mt-3">
+    <div class="container">
+        <div class="blog-zone">
+        </div>
+    </div>
 </div>
+
 <script src="js/jquery-2.2.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script>
-    $.ajax("data/blog.json").done(function(data){
-        console.log(data);
-    });
+
+
+    function generateBlogPosts() {
+        var getBlog =  $.ajax("data/blog.json");
+            getBlog.done(function(data){
+            console.log(data);
+            $.each(data, function (index, post) {
+
+                $('.blog-zone').append("<h1>" + post.title + "</h1>" +
+                    + "<p>" + post.content + "</p>"
+                    + "<h5>" + post.categories.join(', ').toUpperCase() + "</h5>"
+                    + "<footer class=\"blockquote-footer\"><em>" + post.date + "</em><hr></footer>")
+            })
+        });
+            getBlog.fail(function() {
+                console.log('nope not this time')
+            })
+    }
+    //call function to generate data on page load
+    generateBlogPosts();
+
 </script>
 </body>
 </html>
