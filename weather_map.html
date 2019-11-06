@@ -12,104 +12,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <style>
+
         #map {
             width: 100%;
             height: 400px;
         }
 
-        #weatherOne {
-            border-top: 1px solid white;
-            border-bottom: 1px solid white;
-
-        }
     </style>
     <title>Weather Map</title>
 
 </head>
 
 <!--map below-->
-
-<div class="row">
-    <!--today card-->
-    <div class="col s12 m4 center-align">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-                <span class="card-title" id="day-one"></span>
-
-                <div>
-                    <h5>Temperature: <span id="temperature-one"></span></h5>
-                </div>
-                <div>
-                    <h5>Clouds: <span id="clouds-one"></span></span></h5>
-                </div>
-                <div>
-                    <h5>Humidity: <span id="humidity-one"></span></h5>
-                </div>
-                <div>
-                    <h5>Wind: <span id="wind-one"></span> mph</h5>
-                </div>
-                <div>
-                    <h5>Pressure: <span id="pressure-one"></span></h5>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!--tomorrow card-->
-    <div class="col s12 m4 center-align">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-                <span class="card-title" id="day-two"></span>
-
-                <div>
-                    <h5>Temperature: <span id="temperature-two"></span></h5>
-                </div>
-                <div>
-                    <h5>Clouds: <span id="clouds-two"></span></span></h5>
-                </div>
-                <div>
-                    <h5>Humidity: <span id="humidity-two"></span></h5>
-                </div>
-                <div>
-                    <h5>Wind: <span id="wind-two"></span> mph</h5>
-                </div>
-                <div>
-                    <h5>Pressure: <span id="pressure-two"></span></h5>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-    <!--day after tomorrow card-->
-    <div class="col s12 m4 center-align">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-                <span class="card-title" id="day-three"><h6>Today</h6></span>
-
-                <div>
-                    <h5>Temperature: <span id="temperature-three"></span></h5>
-                </div>
-                <div>
-                    <h5>Clouds: <span id="clouds-three"></spanid></span></h5>
-                </div>
-                <div>
-                    <h5>Humidity: <span id="humidity-three"></span></h5>
-                </div>
-                <div>
-                    <h5>Wind: <span id="wind-three"></span> mph</h5>
-                </div>
-                <div>
-                    <h5>Pressure: <span id="pressure-three"></span></h5>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
+<div class="container">
+    <div id="row-one" class="row"></div>
+    <div id='row-two' class="row-two"></div>
+    <div id='row-three' class="row-three"></div>
+    <div id='row-four' class="row-four"></div>
+    <div id='row-five' class="row-five"></div>
+    <div id='row-six' class="row-six"></div>
+    <div id='row-seven' class="row-seven"></div>
+    <div id='row-eight' class="row-eight"></div>
+    <div id='row-nine' class="row-nine"></div>
 </div>
 <div id="map"></div>
+<pre id="coordinates" class="coordinates"></pre>
 <!--MAPBOX DARKSKY JS-->
 
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
@@ -117,65 +44,427 @@
 <script src="js/jquery-2.2.4.js"></script>
 <script src="js/weather_map.js"></script>
 <script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
 <script>
+    $(document).ready(function () {
+        "use strict";
 
-    var darkSkyMap = $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936");
-    darkSkyMap.done(function (data) {
-        var msInDay =  86400000;
-        var dayToday = new Date(getTime());
-        var dayTomorrow = new Date(getTime() +  msInDay );
-        var dayAfterTom = new Date(getTime() + msInDay*2);
-        console.log(data);
-        $('#day-one').append(dayToday + '<hr>');
-        $('#temperature-one').append(data.currently.temperature);
-        $('#clouds-one').append(data.currently.icon);
-        $('#humidity-one').append(data.currently.humidity);
-        $('#wind-one').append(data.currently.windGust);
-        $('#pressure-one').append(data.currently.pressure);
+        //i think we have to wrap darksky in mapbox but let's try..
 
-        $('#day-two').append(dayTomorrow + "<hr>");
-        $('#temperature-two').append("High of: " + data.daily.data[1].temperatureHigh + " and a low of " + data.daily.data[1].temperatureLow);
-        $('#clouds-two').append(data.currently.icon);
-        $('#humidity-two').append(data.currently.humidity);
-        $('#wind-two').append(data.currently.windGust);
-        $('#pressure-two').append(data.currently.pressure);
+        //initialize mapbox
+        mapboxgl.accessToken = mapboxToken;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/satellite-streets-v10',
+            zoom: 4,
+            center: [-98.4916, 29.4252],
+            number: 7
+        });
 
-        $('#day-three').append(dayAfterTom + "<hr>");
-        $('#temperature-three').append("High of: " + data.daily.data[2].temperatureHigh + " and a low of " + data.daily.data[2].temperatureLow);
+        //marker down below
+        var marker = new mapboxgl.Marker({
+            draggable: true
+        })
+            .setLngLat([-98.4916, 29.4252])
+            .addTo(map);
+
+        //dark sky variable
+        var darkSkyMap = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936";
+        console.log(darkSkyMap);
+
+
+        function getDarkSkyData(darkSkyMap) {
+
+            $.ajax(darkSkyMap).done(function (data) {
+
+                //variables for day, temp, empty append, and today
+                var day = data.daily.data;
+                var todayTemp = data.currently.temperature;
+                var todayClouds = data.currently.icon;
+                var today = new Date().getDay();
+                var dayToday = new Date(getTime());
+
+                var icon = [
+                    {
+                        type: "clear-day",
+                        image: "<img src='weather-icons/Sun.svg'>"
+                    },
+                    {
+                        type: "clear-night",
+                        image: "<img src='weather-icons/Moon.svg'>"
+                    },
+                    {
+                        type: "rain",
+                        image: "<img src='weather-icons/Cloud-Rain-Alt.svg'>"
+                    },
+                    {
+                        type: "snow",
+                        image: "<img src='weather-icons/Cloud-Snow-Alt.svg'>"
+                    },
+                    {
+                        type: "sleet",
+                        image: "<img src='weather-icons/Cloud-Hail.svg'>"
+                    },
+                    {
+                        type: "wind",
+                        image: "<img src='weather-icons/Cloud-Wind.svg'>"
+                    },
+                    {
+                        type: "fog",
+                        image: "<img src='weather-icons/Cloud-Fog-Alt.svg'>"
+                    },
+                    {
+                        type: "cloudy",
+                        image: "<img src='weather-icons/Cloud.svg'>"
+                    },
+                    {
+                        type: "partly-cloudy-day",
+                        image: "<img src='weather-icons/Cloud-Sun.svg'>"
+                    },
+                    {
+                        type: "partly-cloudy-night",
+                        image: "<img src='weather-icons/Cloud-Moon.svg'>"
+                    }
+                ];
+
+                // make a for loop to loop through the array for icons, and day per week.
+                for (var i = 0; i < day.length - 1; i++) {
+                    icon = day[i].icon;
+                    var dayOfWeek = (new Date((day[i].time) * 1000)).getDay();
+
+                    /*now we create a switch case to be able to
+                    change the number to an actual 'day'(string)
+                    and give it all the current info yada yada and all the goodness*/
+
+                    switch (dayOfWeek) {
+                        case today:
+                            dayOfWeek = 'Currently';
+                            $('#row-one').append("<div class='col s12 m1.5 center-align'>" +
+                                "<div class='card blue-grey darken-1'>" +
+                                "<div class='card-content white-text'>" +
+                                dayToday + '<hr>' +
+                                "<div>" +
+                                "<span id='day-today'>" +
+                                "Temperature: " +
+                                "<br>" +
+                                todayTemp +
+                                "</span>" +
+                                "</div>" +
+                                "<div>" +
+                                "Clouds: " +
+                                todayClouds +
+                                "</div>" +
+                                "<div>" +
+                                "Humidity: " +
+                                data.currently.humidity +
+                                "</div>" +
+                                "<div>" +
+                                "Wind: " +
+                                data.currently.windGust +
+                                "</div>" +
+                                "<div>" +
+                                "Pressure: " +
+                                data.currently.pressure +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>");
+                            break;
+                        case 0:
+                            dayOfWeek = 'Sunday';
+                            $('#row-two').append("<div class='col s12 m1.5 center-align'>" +
+                                "<div class='card blue-grey darken-1'>" +
+                                "<div class='card-content white-text'>" +
+                                "Sunday" + '<hr>' +
+                                "<div>" + "Temperature: " + "<br>" +
+                                "High: " + day[i].temperatureHigh + "<br>" +
+                                "Low: " + day[i].temperatureLow + "<br>" +
+                                "</div>" +
+                                "<div>" + "Clouds: " +
+                                day[i].icon +
+                                "</div>" +
+                                "<div>" +
+                                "Humidity: " +
+                                day[i].humidity +
+                                "</div>" +
+                                "<div>" +
+                                "Wind: " +
+                                day[i].windGust +
+                                "</div>" +
+                                "<div>" +
+                                "Pressure: " +
+                                day[i].pressure +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>");
+
+                            break;
+                        case 1:
+                            dayOfWeek = 'Saturday';
+                            $('#row-three').append("<div class='col s12 m1.5 center-align'>" +
+                                "<div class='card blue-grey darken-1'>" +
+                                "<div class='card-content white-text'>" +
+                                "Saturday" + '<hr>' +
+                                "<div>" + "Temperature: "  + "<br>" +
+                                "High: " + day[i].temperatureHigh + "<br>" +
+                                "Low: " + day[i].temperatureLow + "<br>" +
+                                "</div>" +
+                                "<div>" + "Clouds: " +
+                                day[i].icon +
+                                "</div>" +
+                                "<div>" +
+                                "Humidity: " +
+                                day[i].humidity +
+                                "</div>" +
+                                "<div>" +
+                                "Wind: " +
+                                day[i].windGust +
+                                "</div>" +
+                                "<div>" +
+                                "Pressure: " +
+                                day[i].pressure +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>");
+
+                            break;
+                        case 2:
+                            dayOfWeek = 'Monday';
+                            $('#row-four').append("<div class='col s12 m1.5 center-align'>" +
+                                "<div class='card blue-grey darken-1'>" +
+                                "<div class='card-content white-text'>" +
+                                "Monday" + '<hr>' +
+                                "<div>" + "Temperature: "  + "<br>" +
+                                "High: " + day[i].temperatureHigh + "<br>" +
+                                "Low: " + day[i].temperatureLow + "<br>" +
+                                "</div>" +
+                                "<div>" + "Clouds: " +
+                                day[i].icon +
+                                "</div>" +
+                                "<div>" +
+                                "Humidity: " +
+                                day[i].humidity +
+                                "</div>" +
+                                "<div>" +
+                                "Wind: " +
+                                day[i].windGust +
+                                "</div>" +
+                                "<div>" +
+                                "Pressure: " +
+                                day[i].pressure +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>");
+                            break;
+                        case 3:
+                            dayOfWeek = 'Tuesday';
+                            $('#row-five').append("<div class='col s12 m1.5 center-align'>" +
+                                "<div class='card blue-grey darken-1'>" +
+                                "<div class='card-content white-text'>" +
+                                "Tuesday" + '<hr>' +
+                                "<div>" + "Temperature: "  + "<br>" +
+                                "High: " + day[i].temperatureHigh + "<br>" +
+                                "Low: " + day[i].temperatureLow + "<br>" +
+                                "</div>" +
+                                "<div>" + "Clouds: " +
+                                day[i].icon +
+                                "</div>" +
+                                "<div>" +
+                                "Humidity: " +
+                                day[i].humidity +
+                                "</div>" +
+                                "<div>" +
+                                "Wind: " +
+                                day[i].windGust +
+                                "</div>" +
+                                "<div>" +
+                                "Pressure: " +
+                                day[i].pressure +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>");
+
+                            break;
+                        case 4:
+                            dayOfWeek = 'Wednesday';
+                            $('#row-six').append("<div class='col s12 m1.5 center-align'>" +
+                                "<div class='card blue-grey darken-1'>" +
+                                "<div class='card-content white-text'>" +
+                                "Wednesday" + '<hr>' +
+                                "<div>" + "Temperature: "  + "<br>" +
+                                "High: " + day[i].temperatureHigh + "<br>" +
+                                "Low: " + day[i].temperatureLow + "<br>" +
+                                "</div>" +
+                                "<div>" + "Clouds: " +
+                                day[i].icon +
+                                "</div>" +
+                                "<div>" +
+                                "Humidity: " +
+                                day[i].humidity +
+                                "</div>" +
+                                "<div>" +
+                                "Wind: " +
+                                day[i].windGust +
+                                "</div>" +
+                                "<div>" +
+                                "Pressure: " +
+                                day[i].pressure +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>");
+                            break;
+                        case 5:
+                            dayOfWeek = 'Thursday';
+                            $('#row-seven').append("<div class='col s12 m1.5 center-align'>" +
+                                "<div class='card blue-grey darken-1'>" +
+                                "<div class='card-content white-text'>" +
+                                "Thursday" + '<hr>' +
+
+                                "<div>" + "Temperature: "  + "<br>" +
+                                "High: " + day[i].temperatureHigh + "<br>" +
+                                "Low: " + day[i].temperatureLow + "<br>" +
+                                "</div>" +
+                                "<div>" + "Clouds: " +
+                                day[i].icon +
+                                "</div>" +
+                                "<div>" +
+                                "Humidity: " +
+                                day[i].humidity +
+                                "</div>" +
+                                "<div>" +
+                                "Wind: " +
+                                day[i].windGust +
+                                "</div>" +
+                                "<div>" +
+                                "Pressure: " +
+                                day[i].pressure +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>");
+                            break;
+                        case 6:
+                            dayOfWeek = 'Friday';
+                            $('#row-eight').append("<div class='col s12 m1.5 center-align'>" +
+                                "<div class='card blue-grey darken-1'>" +
+                                "<div class='card-content white-text'>" +
+                                "Friday" + '<hr>' +
+
+                                "<div>" + "Temperature: "  + "<br>" +
+                                "High: " + day[i].temperatureHigh + "<br>" +
+                                "Low: " + day[i].temperatureLow + "<br>" +
+                                "</div>" +
+                                "<div>" + "Clouds: " +
+                                day[i].icon +
+                                "</div>" +
+                                "<div>" +
+                                "Humidity: " +
+                                day[i].humidity +
+                                "</div>" +
+                                "<div>" +
+                                "Wind: " +
+                                day[i].windGust +
+                                "</div>" +
+                                "<div>" +
+                                "Pressure: " +
+                                day[i].pressure +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>");
+                            break;
+                        case 7:
+                            dayOfWeek = 'Saturday';
+                            $('#row-nine').append("<div class='col s12 m1.5 center-align'>" +
+                                "<div class='card blue-grey darken-1'>" +
+                                "<div class='card-content white-text'>" +
+                                "Saturday" + '<hr>' +
+                                "<div>" + "Temperature: "  + "<br>" +
+                                "High: " + day[i].temperatureHigh + "<br>" +
+                                "Low: " + day[i].temperatureLow + "<br>" +
+                                "</div>" +
+                                "<div>" + "Clouds: " +
+                                day[i].icon +
+                                "</div>" +
+                                "<div>" +
+                                "Humidity: " +
+                                day[i].humidity +
+                                "</div>" +
+                                "<div>" +
+                                "Wind: " +
+                                day[i].windGust +
+                                "</div>" +
+                                "<div>" +
+                                "Pressure: " +
+                                day[i].pressure +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>");
+                            break;
+
+                    }
+                    // html += dayOfWeek;
+                    // html += "</div>" +
+                    //     "</div>" +
+                    //     "</div>" +
+                    //     "</div>"
+
+
+                }
+
+            });
+
+        }
+
+        getDarkSkyData(darkSkyMap);
+
+        marker.on('dragend', onDragEnd);
+
+        function onDragEnd() {
+            var lngLat = marker.getLngLat();
+            console.log(lngLat);
+            // var latitude = lngLat.lat;
+            // var longitude = lngLat.lng;
+            $(' #row-one ').html('');
+            $('#row-two').html('');
+            $('#row-three').html('');
+            $('#row-four').html('');
+            $('#row-five').html('');
+            $('#row-six').html('');
+            $('#row-seven').html('');
+            $('#row-eight').html('');
+            $('#row-nine').html('');
+            // coordinates.style.display = 'block';
+            // coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br>' + 'Latitude:' + lngLat.lat;
+            var weather = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lngLat.lat + "," + lngLat.lng;
+            getDarkSkyData(weather);
+        }
+
+
+
 
     });
 
-    console.log(darkSkyMap);
 
-    //creating a date() object (needs to be a function for user input on what day)
-    var dateObject = new Date(Date.now());
-
-    console.log(dateObject);
-    //map stuff
-    // mapboxgl.accessToken = mapboxToken;
-    // var map = new mapboxgl.Map({
-    //     container: 'map',
-    //     style: 'mapbox://styles/mapbox/satellite-streets-v10',
-    //     zoom: 14,
-    //     center: [-98.4916, 29.4252],
-    //     number: 7
-    // });
-    // console.log(map);
-
-    // var markerOptions = {
-    //     color: "#ff0000",
-    //     draggable: true,
-    //     default: {
-    //         maxZoom: 1
-    //     }
-    // };
-    // var marker = new mapboxgl.Marker(markerOptions)
-    //     .setLngLat([-98.4960, 29.4260])
-    //     .addTo(map);
-    //
-    // console.log(marker.getLngLat());
-
+    //collapse button stuff
 
 </script>
 
