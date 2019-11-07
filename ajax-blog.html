@@ -56,7 +56,9 @@
 
 
     function generateBlogPosts() {
-
+        setTimeout(function () {
+            $('#myBlog').fadeIn('slow');
+        }, 1000);
         var getBlog = $.ajax("data/blog.json");
 
         getBlog.done(function (data) {
