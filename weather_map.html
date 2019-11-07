@@ -44,10 +44,11 @@
         </div>
     </form>
     <!--search form end-->
-</nav>
+    </nav>
 </div>
 
 <!--map below-->
+<!--put empty div set ht and width so map doesn't drop up-->
 <div class="container center-align">
     <div class="row">
 
@@ -56,7 +57,6 @@
 
 
 <div id="map"></div>
-
 
 
 <!--MAPBOX DARKSKY JS-->
@@ -100,7 +100,7 @@
 //if icon type === "type of day
         //output the image
 //icon array of objects
-        var icon = [
+        var weather = [
             {
                 type: "clear-day",
                 image: "<img src='weather-icons/Sun.svg'>"
@@ -143,6 +143,8 @@
             }
         ];
 
+// console.log(weather[1].image);
+
 
         function getDarkSkyData(darkSkyMap) {
 
@@ -175,10 +177,17 @@
                     var dayAfterTom = (new Date(getTime() + msInADay * 2));
                     console.log(dayAfterTom);
 
+                    weather.forEach(function (data) {
+                        if (todayClouds === data.type || day === data.type) {
+                            $('#card-content').html(data.image);
+                        }
+
+                    });
 
                     //FOR LOOP FOR SWITCH CASES
                     for (var i = 0; i < day.length; i++) {
-                        icon = day[i].icon;
+                        weather = day[i].icon;
+                        console.log(weather);
                         var dayOfWeek = (new Date((day[i].time) * 1000)).getDay();
 
                         switch (dayOfWeek) {
@@ -189,13 +198,11 @@
                                     "<div class='card-content white-text'>" +
                                     dayToday + '<hr>' +
                                     "<div>" +
-                                    "<span id='day-today'>" +
                                     "Temperature: " +
                                     "<br>" +
                                     todayTemp + "°" +
-                                    "</span>" +
                                     "</div>" +
-                                    "<div>" +
+                                    "<div id='clouds'>" +
                                     "Clouds: " +
                                     todayClouds +
                                     "</div>" +
@@ -226,7 +233,7 @@
                                     "<div>" + "Temperature: " + "<br>" +
                                     Math.round((day[i].temperatureHigh + day[i].temperatureLow) / 2) + "°" + "<br>" +
                                     "</div>" +
-                                    "<div id='cloud'>" + "Clouds: " +
+                                    "<div id='clouds'>" + "Clouds: " +
                                     day[i].icon +
                                     "</div>" +
                                     "<div>" +
@@ -257,7 +264,8 @@
                                     "<div>" + "Temperature: " + "<br>" +
                                     Math.round((day[i].temperatureHigh + day[i].temperatureLow) / 2) + "°" + "<br>" +
                                     "</div>" +
-                                    "<div>" + "Clouds: " +
+                                    "<div id='clouds'>" +
+                                    "Clouds: " +
                                     day[i].icon +
                                     "</div>" +
                                     "<div>" +
@@ -280,11 +288,11 @@
                     }
 
                     //append icons here
-                    function appendImg(data) {
-                        $('#cloud').html(getImg(data));
-                    }
-
-                    appendImg();
+                    // function appendImg(data) {
+                    //     $('#cloud').html(getImg(data));
+                    // }
+                    //
+                    // appendImg();
 
                     // make a for loop to loop through the array for icons, and day per week.
                     // for (var i = 0; i < day.length - 1; i++) {
@@ -588,35 +596,33 @@
         geoCode(darkSkyMap);
 
 
-        function getImg(data) {
-
-            if (data === "clear-day") {
-                return data.image[0];
-            } else if (data === "clear-night") {
-                return icon.image[1];
-            } else if (data === "rain") {
-                return icon.image[2];
-
-            } else if (data === "snow") {
-                return data.icon.image[3];
-            } else if (data === "sleet") {
-                return data.icon.image[4];
-            } else if (data === "wind") {
-                return data.icon.image[5];
-            } else if (data === "fog") {
-                return data.icon.image[6];
-            } else if (data === "cloudy") {
-                return data.icon.image[7];
-            } else if (data === "partly-cloudy-day") {
-                return data.icon.image[8];
-            } else if (data === "partly-cloudy-night") {
-                console.log("partly-cloud-night");
-                return data.icon.image[9];
-
-            } else {
-                console.log("ok lol")
-            }
-        }
+        // function getImg(data) {
+        //
+        //     if (data === "clear-day") {
+        //         return data.image[0];
+        //     } else if (data === "clear-night") {
+        //         return data.image[1];
+        //     } else if (data === "rain") {
+        //         return data.image[2];
+        //     } else if (data === "snow") {
+        //         return data.image[3];
+        //     } else if (data === "sleet") {
+        //         return data.image[4];
+        //     } else if (data === "wind") {
+        //         return data.image[5];
+        //     } else if (data === "fog") {
+        //         return data.image[6];
+        //     } else if (data === "cloudy") {
+        //         return data.image[7];
+        //     } else if (data === "partly-cloudy-day") {
+        //         return data.image[8];
+        //     } else if (data === "partly-cloudy-night") {
+        //         console.log("partly-cloud-night");
+        //         return data.image[9];
+        //     } else {
+        //         console.log("ok lol")
+        //     }
+        // }
 
 
         // marker drop logic
