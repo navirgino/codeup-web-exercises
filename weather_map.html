@@ -15,6 +15,7 @@
 
         #map {
             width: 100%;
+
             height: 400px;
         }
 
@@ -22,30 +23,62 @@
     <title>Weather Map</title>
 
 </head>
+<nav class="container">
+<!--nav bar below-->
+<nav class="nav-wrapper blue-grey">
+    <ul class="tabs tabs-transparent">
 
+        <li class="tabs tabs-transparent">
+            <a id="today" class="btn-floating btn-large waves-effect">Today</a>
+            <!--<div id="row-one" class="row"></div>-->
+
+        </li>
+        <li class="tabs tabs-transparent"><a class="active btn-floating btn-large waves-effect">Three Days</a></li>
+        <li class="tabs tabs-transparent"><a class="btn-floating btn-large waves-effect">Seven Days</a></li>
+    </ul>
+</nav>
+</nav>
 <!--map below-->
 <div class="container">
-    <div id="row-one" class="row"></div>
-    <div id='row-two' class="row-two"></div>
-    <div id='row-three' class="row-three"></div>
-    <div id='row-four' class="row-four"></div>
-    <div id='row-five' class="row-five"></div>
-    <div id='row-six' class="row-six"></div>
-    <div id='row-seven' class="row-seven"></div>
-    <div id='row-eight' class="row-eight"></div>
-    <div id='row-nine' class="row-nine"></div>
+
+
+
+<!--    <div id="row-one" class="row"></div>-->
+<!--    <div id='row-two' class="row-two"></div>-->
+<!--    <div id='row-three' class="row-three"></div>-->
+<!--    <div id='row-four' class="row-four"></div>-->
+<!--    <div id='row-five' class="row-five"></div>-->
+<!--    <div id='row-six' class="row-six"></div>-->
+<!--    <div id='row-seven' class="row-seven"></div>-->
+<!--    <div id='row-eight' class="row-eight"></div>-->
+<!--    <div id='row-nine' class="row-nine"></div>-->
 </div>
 <div id="map"></div>
-<pre id="coordinates" class="coordinates"></pre>
+
+
+<!--geocoder search bar below-->
+<form>
+    <div class="input-field">
+        <input id="input" type="search" placeholder="Search address" required>
+        <button id="geoSearch" class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i></button>
+        <label class="label-icon" for="input"></label>
+        <i class="material-icons">close</i>
+    </div>
+
+</form>
+
+
 <!--MAPBOX DARKSKY JS-->
 
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
 <!-- Compiled and minified JavaScript -->
 <script src="js/jquery-2.2.4.js"></script>
-<script src="js/weather_map.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="js/keys.js"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 
 
 <script>
@@ -75,6 +108,79 @@
         var darkSkyMap = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936";
         console.log(darkSkyMap);
 
+//if icon type === "type of day
+        //output the image
+
+        var icon = [
+            {
+                type: "clear-day",
+                image: "<img src='weather-icons/Sun.svg'>"
+            },
+            {
+                type: "clear-night",
+                image: "<img src='weather-icons/Moon.svg'>"
+            },
+            {
+                type: "rain",
+                image: "<img src='weather-icons/Cloud-Rain-Alt.svg'>"
+            },
+            {
+                type: "snow",
+                image: "<img src='weather-icons/Cloud-Snow-Alt.svg'>"
+            },
+            {
+                type: "sleet",
+                image: "<img src='weather-icons/Cloud-Hail.svg'>"
+            },
+            {
+                type: "wind",
+                image: "<img src='weather-icons/Cloud-Wind.svg'>"
+            },
+            {
+                type: "fog",
+                image: "<img src='weather-icons/Cloud-Fog-Alt.svg'>"
+            },
+            {
+                type: "cloudy",
+                image: "<img src='weather-icons/Cloud.svg'>"
+            },
+            {
+                type: "partly-cloudy-day",
+                image: "<img src='weather-icons/Cloud-Sun.svg'>"
+            },
+            {
+                type: "partly-cloudy-night",
+                image: "<img src='weather-icons/Cloud-Moon.svg'>"
+            }
+        ];
+
+        // function getImg(data) {
+        //
+        //     if (data === "clear-day") {
+        //         return icon.image[0];
+        //     } else if (data === "clear-night") {
+        //         return icon.image[1];
+        //     } else if (data === "rain") {
+        //         return icon.image[2];
+        //     } else if (data === "snow") {
+        //         return icon.image[3];
+        //     } else if (data === "sleet") {
+        //         return icon.image[4];
+        //     } else if (data === "wind") {
+        //         return icon.image[5];
+        //     } else if (data === "fog") {
+        //         return icon.image[6];
+        //     } else if (data === "cloudy") {
+        //         return icon.image[7];
+        //     } else if (data === "partly-cloudy-day") {
+        //         return icon.image[8];
+        //     } else if (data === "partly-cloudy-night") {
+        //         return icon.image[9];
+        //     } else {
+        //         console.log("ok lol")
+        //     }
+        // }
+
 
         function getDarkSkyData(darkSkyMap) {
 
@@ -87,48 +193,6 @@
                 var today = new Date().getDay();
                 var dayToday = new Date(getTime());
 
-                var icon = [
-                    {
-                        type: "clear-day",
-                        image: "<img src='weather-icons/Sun.svg'>"
-                    },
-                    {
-                        type: "clear-night",
-                        image: "<img src='weather-icons/Moon.svg'>"
-                    },
-                    {
-                        type: "rain",
-                        image: "<img src='weather-icons/Cloud-Rain-Alt.svg'>"
-                    },
-                    {
-                        type: "snow",
-                        image: "<img src='weather-icons/Cloud-Snow-Alt.svg'>"
-                    },
-                    {
-                        type: "sleet",
-                        image: "<img src='weather-icons/Cloud-Hail.svg'>"
-                    },
-                    {
-                        type: "wind",
-                        image: "<img src='weather-icons/Cloud-Wind.svg'>"
-                    },
-                    {
-                        type: "fog",
-                        image: "<img src='weather-icons/Cloud-Fog-Alt.svg'>"
-                    },
-                    {
-                        type: "cloudy",
-                        image: "<img src='weather-icons/Cloud.svg'>"
-                    },
-                    {
-                        type: "partly-cloudy-day",
-                        image: "<img src='weather-icons/Cloud-Sun.svg'>"
-                    },
-                    {
-                        type: "partly-cloudy-night",
-                        image: "<img src='weather-icons/Cloud-Moon.svg'>"
-                    }
-                ];
 
                 // make a for loop to loop through the array for icons, and day per week.
                 for (var i = 0; i < day.length - 1; i++) {
@@ -211,7 +275,7 @@
                                 "<div class='card blue-grey darken-1'>" +
                                 "<div class='card-content white-text'>" +
                                 "Saturday" + '<hr>' +
-                                "<div>" + "Temperature: "  + "<br>" +
+                                "<div>" + "Temperature: " + "<br>" +
                                 "High: " + day[i].temperatureHigh + "<br>" +
                                 "Low: " + day[i].temperatureLow + "<br>" +
                                 "</div>" +
@@ -242,7 +306,7 @@
                                 "<div class='card blue-grey darken-1'>" +
                                 "<div class='card-content white-text'>" +
                                 "Monday" + '<hr>' +
-                                "<div>" + "Temperature: "  + "<br>" +
+                                "<div>" + "Temperature: " + "<br>" +
                                 "High: " + day[i].temperatureHigh + "<br>" +
                                 "Low: " + day[i].temperatureLow + "<br>" +
                                 "</div>" +
@@ -272,7 +336,7 @@
                                 "<div class='card blue-grey darken-1'>" +
                                 "<div class='card-content white-text'>" +
                                 "Tuesday" + '<hr>' +
-                                "<div>" + "Temperature: "  + "<br>" +
+                                "<div>" + "Temperature: " + "<br>" +
                                 "High: " + day[i].temperatureHigh + "<br>" +
                                 "Low: " + day[i].temperatureLow + "<br>" +
                                 "</div>" +
@@ -303,7 +367,7 @@
                                 "<div class='card blue-grey darken-1'>" +
                                 "<div class='card-content white-text'>" +
                                 "Wednesday" + '<hr>' +
-                                "<div>" + "Temperature: "  + "<br>" +
+                                "<div>" + "Temperature: " + "<br>" +
                                 "High: " + day[i].temperatureHigh + "<br>" +
                                 "Low: " + day[i].temperatureLow + "<br>" +
                                 "</div>" +
@@ -334,7 +398,7 @@
                                 "<div class='card-content white-text'>" +
                                 "Thursday" + '<hr>' +
 
-                                "<div>" + "Temperature: "  + "<br>" +
+                                "<div>" + "Temperature: " + "<br>" +
                                 "High: " + day[i].temperatureHigh + "<br>" +
                                 "Low: " + day[i].temperatureLow + "<br>" +
                                 "</div>" +
@@ -365,7 +429,7 @@
                                 "<div class='card-content white-text'>" +
                                 "Friday" + '<hr>' +
 
-                                "<div>" + "Temperature: "  + "<br>" +
+                                "<div>" + "Temperature: " + "<br>" +
                                 "High: " + day[i].temperatureHigh + "<br>" +
                                 "Low: " + day[i].temperatureLow + "<br>" +
                                 "</div>" +
@@ -395,7 +459,7 @@
                                 "<div class='card blue-grey darken-1'>" +
                                 "<div class='card-content white-text'>" +
                                 "Saturday" + '<hr>' +
-                                "<div>" + "Temperature: "  + "<br>" +
+                                "<div>" + "Temperature: " + "<br>" +
                                 "High: " + day[i].temperatureHigh + "<br>" +
                                 "Low: " + day[i].temperatureLow + "<br>" +
                                 "</div>" +
@@ -435,6 +499,10 @@
         }
 
         getDarkSkyData(darkSkyMap);
+        geoCode(darkSkyMap);
+
+
+        // marker drop logic
 
         marker.on('dragend', onDragEnd);
 
@@ -452,20 +520,55 @@
             $('#row-seven').html('');
             $('#row-eight').html('');
             $('#row-nine').html('');
-            // coordinates.style.display = 'block';
-            // coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br>' + 'Latitude:' + lngLat.lat;
             var weather = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + lngLat.lat + "," + lngLat.lng;
             getDarkSkyData(weather);
         }
 
+        //geocoder logic
 
+        function geoCode() {
+            $('#geoSearch').click(function (e) {
+                e.preventDefault();
+                var input = $('#input').val();
+                console.log(input);
+                geocode(input, mapboxToken).then(function (result) {
+                    console.log(result);
 
-
+                    map.flyTo({
+                        center: result,
+                        zoom: 14,
+                        speed: 1
+                    });
+                    marker.setLngLat(result);
+                    $(' #row-one ').html('');
+                    $('#row-two').html('');
+                    $('#row-three').html('');
+                    $('#row-four').html('');
+                    $('#row-five').html('');
+                    $('#row-six').html('');
+                    $('#row-seven').html('');
+                    $('#row-eight').html('');
+                    $('#row-nine').html('');
+                    onDragEnd();
+                });
+            });
+        }
     });
 
+    //initialize materialize button
+    $(document).ready(function(){
+        $('.fixed-action-btn').floatingActionButton();
+    });
 
     //collapse button stuff
-
+    function clickTodayButton(){
+        $('#today').click(function(e){
+            e.preventDefault();
+            $('#row-one').children().hide();
+            $('#row-one').children().first().show().addClass('row-one');
+        })
+    }
+clickTodayButton()
 </script>
 
 
