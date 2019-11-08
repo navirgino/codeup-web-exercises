@@ -25,7 +25,6 @@
 
         #map {
             width: 100%;
-
             height: 80vh;
         }
 
@@ -51,7 +50,7 @@
     <!--nav bar below-->
 
     <nav class="nav-wrapper blue-grey">
-        My Weather Map
+        Weather Map
 
     </nav>
     <!--search form below-->
@@ -206,20 +205,19 @@
                 var dayTomorrow = (new Date(getTime() + msInADay));
 
 
-
                 //SHOWS DAY AFTER TOMORROW DATE
                 var dayAfterTom = (new Date(getTime() + msInADay * 2));
-                console.log(dayAfterTom);
+
 
                 //today card
 
                 $('.row ').append("<div class='col s7 m4 center-align '>" +
                     "<div class='card blue-grey darken-1 waves-effect waves-dark white'>" +
-                    "<div class='card-content white-text '>" +
+                    "<div class='card-content white-text'>" +
                     dayToday + '<hr>' +
                     "<div>" +
                     "Temperature: " +
-                    Math.round((day[0].temperatureHigh + day[0].temperatureLow) / 2) + "°" +
+                    Math.round((day[0].temperatureHigh + day[0].temperatureLow) / 2) + "°F" +
                     "</div>" +
                     "<div>" + "<hr>" +
                     "Clouds: " +
@@ -227,7 +225,7 @@
                     "</div>" +
                     "<div>" +
                     "Humidity: " +
-                    Math.round(day[0].humidity * 100) +
+                    Math.round(day[0].humidity * 100) + "%" +
                     "</div>" +
                     "<div>" +
                     "Wind: " +
@@ -251,7 +249,7 @@
                     dayTomorrow + '<hr>' +
                     "<div>" +
                     "Temperature: " +
-                    Math.round((day[1].temperatureHigh + day[1].temperatureLow) / 2) + "°" + "<hr>" +
+                    Math.round((day[1].temperatureHigh + day[1].temperatureLow) / 2) + "°F" + "<hr>" +
                     "</div>" +
                     "<div>" +
                     "Clouds: " +
@@ -259,7 +257,7 @@
                     "</div>" +
                     "<div>" +
                     "Humidity: " +
-                    Math.round(day[1].humidity * 100) +
+                    Math.round(day[1].humidity * 100) + "%" +
                     "</div>" +
                     "<div>" +
                     "Wind: " +
@@ -283,7 +281,7 @@
                     dayAfterTom + '<hr>' +
                     "<div>" +
                     "Temperature: " +
-                    Math.round((day[2].temperatureHigh + day[2].temperatureLow) / 2) + "°" + "<hr>" +
+                    Math.round((day[2].temperatureHigh + day[2].temperatureLow) / 2) + "°F" + "<hr>" +
                     "</div>" +
                     "<div>" +
                     "Clouds: " +
@@ -291,7 +289,7 @@
                     "</div>" +
                     "<div>" +
                     "Humidity: " +
-                    Math.round(day[2].humidity * 100) +
+                    Math.round(day[2].humidity * 100) + "%" +
                     "</div>" +
                     "<div>" +
                     "Wind: " +
