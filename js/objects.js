@@ -203,22 +203,36 @@
      */
 
 
-function createBook(title, first, last){
-    var addedBook = {};
-    addedBook.title = title;
-    addedBook.author = {
-        firstName: first,
-        lastName: last
-    };
-    return addedBook;
+    var createBook = (function(title, firstN, lastN){
+        var bucketObj = {};
+        bucketObj.title = title;
+        bucketObj.author = {
+            firstName: firstN,
+            lastName: lastN
+        };
+        return bucketObj
+    });
+    var newBook = createBook("title", "first", "last");
+    books.push(newBook);
+    books.push(createBook("othertitle", "otherfirst", "othersecond"));
 
-}
+
+// function createBook(title, first, last){
+//     var addedBook = {};
+//     addedBook.title = title;
+//     addedBook.author = {
+//         firstName: first,
+//         lastName: last
+//     };
+//     return addedBook;
+//
+// }
 /*var newBook = createBook("me", "b" , "z");*/
 /*console.log(newBook);*/
 
-books.push(createBook("a", "b", "c"));
-
-console.log(books);
+// books.push(createBook("a", "b", "c"));
+//
+// console.log(books);
 
 function showBookInfo(){
     books.forEach(function(bookObject){
