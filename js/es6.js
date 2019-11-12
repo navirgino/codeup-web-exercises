@@ -63,7 +63,7 @@ users.forEach(user => names.push(user.name));
 
 // TODO: replace `var` with `let` in the following declaration
 let developers = [];
-users.forEach(function() {
+users.forEach(function(user) {
   // TODO: rewrite the code below to use object destructuring assignment
   //       note that you can also use destructuring assignment in the function
   //       parameter definition
@@ -74,18 +74,22 @@ users.forEach(function() {
   // const languages = user.languages;
   // console.log(languages);
 
+  const {name, email, languages} = user;
+
   // TODO: rewrite the assignment below to use template strings
   // developers.push(`${name}` +'\'s email is ' + `${email}`, `${name}`, ' knows ', languages.join(', '));
+  developers.push(`${name}'s email is: ${email} ${name} knows: ${languages.join(', ')}`);
+
 
 });
-developers.push(`${name}\s email is: ${email} ${name} knows ${languages}`);
+
 
 console.log(developers);
 
 
 // TODO: Use `let` for the following variable
-let list = '<ul>';
-
+// let list = '<ul>';
+// console.log(list);
 // // // TODO: rewrite the following loop to use a for..of loop
 // developers.forEach(function (developer) {
 //
@@ -95,7 +99,15 @@ let list = '<ul>';
 // list += '</ul>';
 //
 // console.log(list);
-//
+
+
+
+let list = '<ul>';
+console.log(`${list}`);
+
 for(let dev of developers){
-  console.log(`${list}<li>${dev}</li></ul>`);
+  console.log(`<li>${dev}</li>`);
 }
+
+let endList = '</ul>';
+console.log(endList);
