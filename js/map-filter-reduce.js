@@ -62,5 +62,28 @@ console.log(yrOfExp.reduce((a, b) => a + b / 5));
 
 
 //TODO: Use .reduce to get the longest email from the list of users.
+//ternary reminder:
+// condition ? expressionIfTrue : expressionIfFalse
 
+
+// so if email length is greater than total email length -> conditional total : email
+
+
+const longestEmail = users.reduce((a, b) => {
+    let longest =  a.email.length > b.email.length ? a : b;
+    return longest;
+});
+
+
+console.log(longestEmail);
+
+//
+// function longestEmail(a,b){
+//     if(a.email.length > b.email.length){
+//         return a;
+//     }else {
+//         return b;
+//     }
+// }
+// console.log(longestEmail(users));
 //TODO: Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
