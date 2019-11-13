@@ -77,13 +77,23 @@ const longestEmail = users.reduce((a, b) => {
 
 console.log(longestEmail);
 
+// function longestboi(){
+//     users.reduce((a, b) => {
+//         if(a.email.length > b.email.length){
+//             return a;
+//         }else {
+//             return b;
+//         }
+//     });
 //
-// function longestEmail(a,b){
-//     if(a.email.length > b.email.length){
-//         return a;
-//     }else {
-//         return b;
-//     }
 // }
-// console.log(longestEmail(users));
-//TODO: Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
+// console.log(longestboi(users.email));
+
+//TODO: Use .reduce to get the list of user's names in a single string.
+// Example: Your instructors are: ryan, luis, zach, fernando, justin.
+
+const singleString = users.reduce((a, b) => {
+    return a + b.name + ", ";
+} ,"Your instructors are: ");
+
+console.log(singleString);
