@@ -55,10 +55,13 @@ console.log(yrOfExp);
 
 console.log(yrOfExp.reduce((a, b) => a + b / 5));
 
-// const totalYrOfExp = users.reduce(accumulator, yrOfExp);
-//
-//
-// console.log(totalYrOfExp);
+
+let totalYearsOfExperience = users.reduce((total, user) => {
+    return total + user.yearsOfExperience;
+},0);
+let averageExp = totalYearsOfExperience / users.length;
+console.log(totalYearsOfExperience);
+console.log(averageExp);
 
 
 //TODO: Use .reduce to get the longest email from the list of users.
@@ -74,20 +77,17 @@ const longestEmail = users.reduce((a, b) => {
     return longest;
 });
 
+// let longEmailBoi = emails.reduce((longest, email) => {
+//     if(email.length > longest.length) {
+//         return email;
+//     }else {
+//         return longest;
+//     }
+// }, "");
 
 console.log(longestEmail);
 
-// function longestboi(){
-//     users.reduce((a, b) => {
-//         if(a.email.length > b.email.length){
-//             return a;
-//         }else {
-//             return b;
-//         }
-//     });
-//
-// }
-// console.log(longestboi(users.email));
+
 
 //TODO: Use .reduce to get the list of user's names in a single string.
 // Example: Your instructors are: ryan, luis, zach, fernando, justin.
@@ -97,3 +97,18 @@ const singleString = users.reduce((a, b) => {
 } ,"Your instructors are: ");
 
 console.log(singleString);
+
+const singleStr = users.reduce((a, b) => {
+   return `${a}, ${b.name}`
+}, "Your instructors are: ") + ".";
+
+console.log(singleStr);
+
+//TODO: BONUS: User .reduce to get the unique list of languages from the list of users.
+
+let listOfLanguages = Array.from(users.reduce((accumulator, user) => {
+    user.languages.forEach(language => accumulator.add(language));
+    return accumulator;
+}, new Set()));
+
+console.log(listOfLanguages);
