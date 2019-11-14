@@ -77,13 +77,13 @@ const longestEmail = users.reduce((a, b) => {
     return longest;
 });
 
-// let longEmailBoi = emails.reduce((longest, email) => {
-//     if(email.length > longest.length) {
-//         return email;
-//     }else {
-//         return longest;
-//     }
-// }, "");
+let longEmailBoi = emails.reduce((longest, email) => {
+    if(email.length > longest.length) {
+        return email;
+    }else {
+        return longest;
+    }
+}, "");
 
 console.log(longestEmail);
 
@@ -112,3 +112,4 @@ let listOfLanguages = Array.from(users.reduce((accumulator, user) => {
 }, new Set()));
 
 console.log(listOfLanguages);
+
