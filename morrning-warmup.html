@@ -585,4 +585,22 @@ for the parameter-->
     };
     console.log(evenArr([1, 2, 3, 4, 5, 6, 7, 8]))
 </script>
+<script>
+
+const myPromise = num => {
+    return new Promise((resolve, reject) => {
+        if (num % 2 === 0) {
+            resolve(`Yea, the number is ${num}`);
+        } else {
+            reject(`sorry ${num} ain't even`);
+        }
+    });
+};
+
+myPromise(4)
+    .then(message => console.log(message));
+myPromise(9)
+    .catch(message => console.log(message));
+
+</script>
 </html>
