@@ -8,599 +8,625 @@
 <body>
 <h1>Deimos</h1>
 <p>These are my morning warmups:</p>
+<div id="moEx"></div>
+<!--<script>-->
+<!--    function sum(num1, num2) {-->
+
+<!--        var sum = num1 + num2;-->
+
+<!--        return sum;-->
+<!--    }-->
+
+<!--    console.log(sum(3, 4));-->
+
+<!--</script>-->
+
+<!--&lt;!&ndash; wrote a function to find the area of a triangle &ndash;&gt;-->
+<!--&lt;!&ndash; this function takes parameters 5 , 6 , 7 &ndash;&gt;-->
+<!--<script>-->
+<!--    function area(a, b, c) {-->
+<!--        // this variable stores half the perimeter-->
+<!--        var half = (a + b + c) / 2;-->
+<!--        // this area is the squareroot of this-->
+<!--        var area = Math.sqrt(half * (half - a) * (half - b) * (half - c));-->
+<!--        // we return the area-->
+<!--        return area;-->
+<!--    }-->
+
+<!--    // console log for result-->
+<!--    console.log(area(5, 6, 7));-->
+<!--</script>-->
+<!--&lt;!&ndash; write a javascript function that returns the string "hi." &ndash;&gt;-->
+<!--<script>-->
+<!--    function sayHi() {-->
+<!--        return "Hi";-->
+<!--    }-->
+
+<!--    console.log(sayHi());-->
+<!--</script>-->
+
+<!--<script>-->
+<!--    // this is a function for an input, and a greeting //-->
+<!--    function sayName() {-->
+<!--        var person = prompt("Please enter your name!");-->
+<!--        return "Hello, " + person;-->
+
+<!--    }-->
+
+<!--    console.log(sayName())-->
+<!--</script>-->
+<!--<script>-->
+<!--    function firstE(array) {-->
+<!--        return array[0];-->
+<!--    }-->
+
+<!--    console.log(firstE([1, 2, 3, 4]))-->
+
+<!--</script>-->
+<!--<script>-->
+<!--    function areaOfEqTri(a) {-->
+<!--        var squared = a * a;-->
+<!--        return (Math.sqrt(3) / 4) * squared;-->
+<!--    }-->
+
+<!--    console.log(areaOfEqTri(3))-->
+<!--</script>-->
+<!--<script>-->
+<!--    function concat() {-->
+<!--        return "a" + "b" + "c";-->
+<!--    }-->
+
+<!--    console.log(concat())-->
+<!--</script>-->
+
+<!--&lt;!&ndash;taking in and returning string in uppercase&ndash;&gt;-->
+<!--<script>-->
+<!--    function upperCase() {-->
+<!--        var str = "Hello World";-->
+<!--        return str.toUpperCase();-->
+<!--    }-->
+
+<!--    console.log(upperCase())-->
+<!--</script>-->
+
+<!--&lt;!&ndash;david's solution to function above&ndash;&gt;-->
+<!--<script>-->
+<!--    function upperCase(str) {-->
+<!--        return str.toUpperCase();-->
+
+<!--    }-->
+
+<!--    console.log(upperCase("pizza time"))-->
+<!--</script>-->
+<!--&lt;!&ndash;area with diameter given&ndash;&gt;-->
+<!--<script>-->
+<!--    function areaofCircWithDiameter() {-->
+<!--        var diameter = prompt("Please enter the diameter: ");-->
+<!--        var squared = diameter * diameter;-->
+<!--        return (1 / 4) * Math.PI * squared-->
+
+
+<!--    }-->
+
+<!--    console.log(areaofCircWithDiameter())-->
+<!--</script>-->
+<!--&lt;!&ndash;david's solution below&ndash;&gt;-->
+<!--<script>-->
+<!--    function areaCircDia(d) {-->
+<!--        var radius = d / 2;-->
+<!--        return Math.PI * Math.pow(radius, 2);-->
+<!--    }-->
+
+<!--    console.log(areaCircDia(5));-->
+<!--</script>-->
+
+<!--&lt;!&ndash;perimeter of quadrilateral&ndash;&gt;-->
+<!--<script>-->
+<!--    function perimeterOfQuad(a, b, c, d) {-->
+<!--        return a + b + c + d;-->
+<!--    }-->
+
+<!--    console.log(perimeterOfQuad(1, 2, 3, 4))-->
+<!--</script>-->
+
+<!--<script>-->
+<!--    function checkType(x) {-->
+<!--        return typeof x;-->
+<!--    }-->
+
+<!--    console.log(checkType(3))-->
+<!--</script>-->
+
+<!--&lt;!&ndash;a javascript function that returns true only when passed a positive, even number&ndash;&gt;-->
+<!--<script>-->
+<!--    function posNumAndEven(num) {-->
+<!--        return num % 2 === 0 && num > 0;-->
+
+<!--    }-->
+
+<!--    console.log(posNumAndEven(4));-->
+<!--    console.log(posNumAndEven(7));-->
+<!--    console.log(posNumAndEven(-4));-->
+<!--    console.log(posNumAndEven(0));-->
+<!--</script>-->
+<!--&lt;!&ndash;js func that prompts user for a number and returns true if greater than 5&ndash;&gt;-->
+<!--<script>-->
+<!--    /*  function greaterThanFive(){-->
+<!--          var num = parseInt(prompt("Please input a number: "));-->
+<!--          if (num > 5){-->
+<!--              return true;-->
+<!--          } else{-->
+<!--              return false;-->
+<!--          }-->
+<!--      }-->
+<!--      console.log(greaterThanFive())*/-->
+
+<!--    function greaterThanFive() {-->
+<!--        var num = parseInt(prompt("Please input a number: "));-->
+<!--        return num > 5;-->
+<!--    }-->
+
+<!--    console.log(greaterThanFive())-->
+<!--</script>-->
+
+<!--<script>-->
+<!--    function helloStranger() {-->
+<!--        var stranger = prompt("What is your name?");-->
+<!--        return alert("Hello there, " + stranger);-->
+<!--    }-->
+
+<!--    console.log(helloStranger())-->
+<!--</script>-->
+<!--&lt;!&ndash;david's solution&ndash;&gt;-->
+<!--&lt;!&ndash;Write a JS Function returns the message, "Hello there, stranger."-->
+<!--Alert the return from this function. Refacter so that it returns "Hello there, "-->
+<!--concatenated to an argument. Prompt the user to input a string, call the function,-->
+<!--and alert the return. Refactor so that the function has 'stranger' as a default value-->
+<!--for the parameter&ndash;&gt;-->
+<!--<script>-->
+
+<!--    function helloThere(string = "stranger") {-->
+<!--        return 'Hello there, ' + string + '.';-->
+<!--    }-->
+
+<!--    var promptedResponse = prompt('Input string, plox.');-->
+<!--    alert(helloThere(promptedResponse));-->
+<!--</script>-->
+<!--<script>-->
+<!--    function lengthOfArray(array) {-->
+<!--        return array.length;-->
+<!--    }-->
+
+<!--    console.log(lengthOfArray([1, 2, 3, 4, 5]));-->
+<!--    console.log(lengthOfArray([1, 2, 3, 4, 5, 6]));-->
+<!--</script>-->
+<!--<script>-->
+<!--    function takesAnArrayFive(arrayInput) {-->
+<!--        /*    console.log(arrayInput);*/-->
+<!--        console.log(arrayInput[0]);-->
+<!--        console.log(arrayInput[1]);-->
+<!--        console.log(arrayInput[2]);-->
+<!--        console.log(arrayInput[3]);-->
+<!--        console.log(arrayInput[4]);-->
+
+<!--    }-->
+
+<!--    function returnQuotient(num1, num2) {-->
+<!--        if (typeof num1 === 'number' && typeof num2 === 'number') {-->
+<!--            return num1 / num2;-->
+<!--        } else {-->
+<!--            return false;-->
+<!--        }-->
+<!--    }-->
+
+<!--    console.log(returnQuotient(2, 4));-->
+<!--    console.log(returnQuotient(6, "3"));-->
+<!--    console.log(returnQuotient("12", 8));-->
+<!--    console.log(returnQuotient("11, 8"));-->
+<!--    console.log(takesAnArrayFive(["Nico", "Adri", "Nick", "Rain", "Gloria"]));-->
+
+
+<!--</script>-->
+<!--<script>-->
+<!--    function takesAnArrayFive() {-->
+<!--        console.log(["Nico", "Adri", "Nick", "Rain", "Gloria"]);-->
+
+<!--    }-->
+
+<!--    console.log(takesAnArrayFive());-->
+
+<!--</script>-->
+<!--<script>-->
+<!--    function eightCharacter(input) {-->
+<!--        if (typeof input === 'string' && input.length >= 8) {-->
+<!--            return true;-->
+<!--        } else {-->
+<!--            return false;-->
+<!--        }-->
+<!--    }-->
+
+<!--    console.log(eightCharacter('Nicola'));-->
+<!--    console.log(eightCharacter('Yabbadabbadoo'));-->
+<!--    console.log(eightCharacter("Eightyie"));-->
+
+<!--</script>-->
+<!--<script>-->
+<!--    function roundDownFloatNum(num) {-->
+<!--        if (typeof num === "number" && !isNaN(num)) {-->
+<!--            return Math.round(Math.floor(num));-->
+<!--        } else {-->
+<!--            return false;-->
+<!--        }-->
+<!--    }-->
+
+<!--    console.log(roundDownFloatNum(6.2));-->
+<!--    console.log(roundDownFloatNum("7.5"));-->
+<!--    console.log(roundDownFloatNum(6.5));-->
+<!--    console.log(roundDownFloatNum("eggs"));-->
+<!--</script>-->
+<!--<script>-->
+<!--    //if argument is 10 the function should log numbers 1 - 10-->
+<!--    function count(num) {-->
+<!--        var s = "";-->
+<!--        for (var i = 0; num >= i; i++) {-->
+<!--            s += i + 1;-->
+<!--            if (i < (num)) {-->
+<!--                s += ', ';-->
+<!--            }-->
+<!--        }-->
+<!--        return s;-->
+<!--    }-->
+
+<!--    console.log(count(7));-->
+<!--    console.log(count(9));-->
+<!--</script>-->
+<!--&lt;!&ndash;sophies&ndash;&gt;-->
+<!--<script>-->
+<!--    function countUp(x) {-->
+<!--        for (var i = 1; x >= i; i++) {-->
+<!--            console.log(i);-->
+<!--        }-->
+<!--        return "Done counting!";-->
+<!--    }-->
+
+<!--    console.log(countUp(8));-->
+<!--</script>-->
+<!--<script>-->
+<!--    // function createPersonObject(nameStr, ageNum){-->
+<!--    //     var personObj = {};-->
+<!--    //     personObj.nameStr = nameStr;-->
+<!--    //     personObj.ageNum = ageNum;-->
+<!--    //-->
+<!--    //     return personObj;-->
+<!--    // }-->
+<!--    // or-->
+<!--    // function createPersonObject(name, age){-->
+<!--    //     return {-->
+<!--    //         name: name,-->
+<!--    //         age: age-->
+<!--    //     }-->
+<!--    // }-->
+<!--    //-->
+<!--    // console.log(createPersonObject("Hannah", 47));-->
+
+
+<!--</script>-->
+<!--<script>-->
+<!--    function fizzBuzz() {-->
+<!--        for (var i = 1; i <= 100; i++) {-->
+<!--            if (i % 15 === 0) {-->
+<!--                console.log('FizzBuzz');-->
+<!--            } else if (i % 3 === 0) {-->
+<!--                console.log('Fizz');-->
+<!--            } else if (i % 5 === 0) {-->
+<!--                console.log('Buzz');-->
+<!--            } else {-->
+<!--                console.log(i);-->
+<!--            }-->
+<!--        }-->
+<!--    }-->
+
+<!--    console.log(fizzBuzz());-->
+<!--    //-->
+<!--    // for(i=1; i<=20;i++){-->
+<!--    //     console.log(((i%3) ? (i%5) ?i:'Buzz':(i%5)?'Fizz':'FizzBuzz'));-->
+<!--    // )};-->
+<!--</script>-->
+<!--<script>-->
+<!--    function stringFive(num) {-->
+<!--        if (num === 'five') {-->
+<!--            return 5;-->
+<!--        }-->
+<!--    }-->
+
+<!--    console.log(stringFive("five"));-->
+<!--</script>-->
+<!--<script>-->
+<!--    var band = new Object();-->
+<!--    band.shred = function () {-->
+<!--        console.log('RAAAAAAAAAA!!!!');-->
+<!--    };-->
+
+<!--</script>-->
+<!--<script>-->
+<!--    var shoppingCarts = [-->
+<!--        {-->
+<!--            apples: 8,-->
+<!--            bananas: 2,-->
+<!--            oranges: 4,-->
+<!--            grapes: 24-->
+<!--        }, {-->
+<!--            apples: 3,-->
+<!--            bananas: 6,-->
+<!--            oranges: 8,-->
+<!--            grapes: 12-->
+<!--        }, {-->
+<!--            apples: 0,-->
+<!--            bananas: 12,-->
+<!--            oranges: 0,-->
+<!--            grapes: 0-->
+<!--        }, {-->
+<!--            apples: 4,-->
+<!--            bananas: 0,-->
+<!--            oranges: 12,-->
+<!--            grapes: 10-->
+<!--        }-->
+<!--    ];-->
+
+<!--    function mostOranges(carts) {-->
+<!--        var solution = [];-->
+<!--        var winner = carts[0];-->
+<!--        var winningI = -1;-->
+<!--        carts.forEach(function (cart, index) {-->
+<!--            if (cart.oranges > winner.oranges) {-->
+<!--                winner = cart;-->
+<!--                winningI = index;-->
+<!--            }-->
+<!--        });-->
+<!--        solution.push(winner, winningI);-->
+<!--        return winner;-->
+<!--    }-->
+
+<!--    console.log(mostOranges(shoppingCarts));-->
+<!--</script>-->
+<!--<script>-->
+<!--    var students = [-->
+<!--        {-->
+<!--            name: "Mary",-->
+<!--            grade: 10,-->
+<!--            gpa: 3.7,-->
+<!--            isRegistered: true-->
+<!--        },-->
+<!--        {-->
+<!--            name: "Tim",-->
+<!--            grade: 12,-->
+<!--            gpa: 3.2,-->
+<!--            isRegistered: false-->
+<!--        },-->
+<!--        {-->
+<!--            name: "Ellie",-->
+<!--            grade: 9,-->
+<!--            gpa: 4.0,-->
+<!--            isRegistered: false-->
+<!--        },-->
+<!--        {-->
+<!--            name: "Alex",-->
+<!--            grade: 10,-->
+<!--            gpa: 3.9,-->
+<!--            isRegistered: true-->
+<!--        }-->
+<!--    ];-->
+
+<!--    function notRegistered(arr) {-->
+<!--        var newArr = [];-->
+<!--        arr.forEach(function (student) {-->
+<!--            if (student.isRegistered === false) {-->
+<!--                newArr.push(student)-->
+<!--            }-->
+<!--        });-->
+<!--        return newArr;-->
+
+<!--    }-->
+
+<!--    console.log(notRegistered(students));-->
+<!--</script>-->
+<!--<script>-->
+<!--    var hamsters = [-->
+<!--        {-->
+<!--            name: "Hamtaro",-->
+<!--            heightInMM: 86,-->
+<!--            fur: ['orange', 'white'],-->
+<!--            gender: "male",-->
+<!--            dateOfBirth: "August 6"-->
+<!--        }, {-->
+<!--            name: "Bijou",-->
+<!--            heightInMM: 75,-->
+<!--            fur: ['white'],-->
+<!--            gender: "female",-->
+<!--            dateOfBirth: "July 10"-->
+<!--        }, {-->
+<!--            name: "Oxnard",-->
+<!--            heightInMM: 100,-->
+<!--            fur: ['grey', 'white'],-->
+<!--            gender: "male",-->
+<!--            dateOfBirth: "May 3"-->
+<!--        }, {-->
+<!--            name: "Boss",-->
+<!--            heightInMM: 120,-->
+<!--            fur: ['brown', 'white'],-->
+<!--            gender: "male",-->
+<!--            dateOfBirth: "Spetember 21"-->
+<!--        }, {-->
+<!--            name: "Snoozer",-->
+<!--            heightInMM: 85,-->
+<!--            fur: ['brown', 'white', "pink"],-->
+<!--            gender: "male",-->
+<!--            dateOfBirth: "January 14"-->
+<!--        }-->
+<!--    ];-->
+
+<!--    function hamsterObj(arr) {-->
+
+<!--        return arr.sort(function (a, b) {-->
+<!--            return a.heightInMM - b.heightInMM-->
+<!--        });-->
+
+
+<!--    }-->
+
+<!--    console.log(hamsterObj(hamsters))-->
+<!--</script>-->
+
+<!--<ul>-->
+<!--    <li>NBA.tv: <p>I watch basketball alot</p></li>-->
+
+<!--    <li>Bulpapedia: <p>I like pokemon alot for information on pokemon stats for competitive play</p></li>-->
+
+<!--    <li>Crunchyroll <p>I watch anime alot</p></li>-->
+<!--</ul>-->
+
+
+<!--</body>-->
+<!--<script>-->
+
+<!--    function takeInNumsTurnToString(num) {-->
+<!--        var a = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];-->
+<!--        if (num <= 10) {-->
+<!--            return a[num];-->
+<!--        } else {-->
+<!--            return false;-->
+<!--        }-->
+<!--    }-->
+
+<!--    console.log(takeInNumsTurnToString(5));-->
+
+<!--    /*david's way*/-->
+<!--    function numAsWord(num) {-->
+<!--        switch (num) {-->
+<!--            case 1:-->
+<!--                return 'one';-->
+<!--            case 2:-->
+<!--                return 'two';-->
+<!--            case 3:-->
+<!--                return 'three';-->
+<!--            case 4:-->
+<!--                return 'four';-->
+<!--            case 5:-->
+<!--                return 'five';-->
+<!--            case 6:-->
+<!--                return 'six';-->
+<!--            case 7:-->
+<!--                return 'seven';-->
+<!--            case 8:-->
+<!--                return 'eight';-->
+<!--            case 9:-->
+<!--                return 'nine';-->
+<!--            case 10:-->
+<!--                return 'ten';-->
+<!--            default:-->
+<!--                return false;-->
+<!--        }-->
+<!--    }-->
+
+<!--    var randomNum = Math.floor(Math.random() * 10) + 1;-->
+<!--    console.log(numAsWord(randomNum));-->
+<!--</script>-->
+<!--<script>-->
+<!--    var newObj = {-->
+<!--        gratitude: "You're Welcome"-->
+<!--    };-->
+
+<!--    function yaWelcome(gratitude) {-->
+<!--        if (gratitude === "Thank You") {-->
+<!--            return newObj.gratitude;-->
+
+<!--        } else {-->
+<!--            return "Hell naw"-->
+<!--        }-->
+<!--    }-->
+
+<!--    console.log(yaWelcome("Thank You"));-->
+<!--    console.log(yaWelcome("mane hail naw"))-->
+<!--</script>-->
+<!--<script>-->
+<!--    function randBool(num) {-->
+<!--        return Boolean(Math.floor(Math.random() * 2));-->
+<!--    }-->
+
+<!--    console.log(randBool());-->
+
+<!--</script>-->
+<!--<script>-->
+<!--    // function evenArr(a){-->
+<!--    //     let newArr= [];-->
+<!--    //     a.forEach(function(num){-->
+<!--    //         if(num%2 === 0){-->
+<!--    //             newArr.push(num);-->
+<!--    //         }-->
+<!--    //-->
+<!--    //     });-->
+<!--    //     return newArr;-->
+<!--    // }-->
+<!--    //-->
+<!--    // console.log(evenArr([1, 2, 3, 4, 5, 6, 7, 8]));-->
+<!--    /*ES6 Below*/-->
+<!--    // const evenArr = function(a){-->
+<!--    //     let newArr =[];-->
+<!--    //     a.forEach(num => {-->
+<!--    //         if(num % 2 === 0) newArr.push(num);-->
+<!--    //     });-->
+<!--    //-->
+<!--    //     return newArr;-->
+<!--    // };-->
+<!--    // console.log(evenArr([1, 2, 3, 4, 5, 6, 7, 8]));-->
+<!--    /*ES6 below using for of loop*/-->
+<!--    const evenArr = function (numbers) {-->
+<!--        let newArr = [];-->
+<!--        for (num of numbers) {-->
+<!--            if (num % 2 === 0) newArr.push(num);-->
+<!--        }-->
+<!--        return newArr;-->
+<!--    };-->
+<!--    console.log(evenArr([1, 2, 3, 4, 5, 6, 7, 8]))-->
+<!--</script>-->
 <script>
-    function sum(num1, num2) {
 
-        var sum = num1 + num2;
-
-        return sum;
-    }
-
-    console.log(sum(3, 4));
-
-</script>
-
-<!-- wrote a function to find the area of a triangle -->
-<!-- this function takes parameters 5 , 6 , 7 -->
-<script>
-    function area(a, b, c) {
-        // this variable stores half the perimeter
-        var half = (a + b + c) / 2;
-        // this area is the squareroot of this
-        var area = Math.sqrt(half * (half - a) * (half - b) * (half - c));
-        // we return the area
-        return area;
-    }
-
-    // console log for result
-    console.log(area(5, 6, 7));
-</script>
-<!-- write a javascript function that returns the string "hi." -->
-<script>
-    function sayHi() {
-        return "Hi";
-    }
-
-    console.log(sayHi());
-</script>
-
-<script>
-    // this is a function for an input, and a greeting //
-    function sayName() {
-        var person = prompt("Please enter your name!");
-        return "Hello, " + person;
-
-    }
-
-    console.log(sayName())
-</script>
-<script>
-    function firstE(array) {
-        return array[0];
-    }
-
-    console.log(firstE([1, 2, 3, 4]))
-
-</script>
-<script>
-    function areaOfEqTri(a) {
-        var squared = a * a;
-        return (Math.sqrt(3) / 4) * squared;
-    }
-
-    console.log(areaOfEqTri(3))
-</script>
-<script>
-    function concat() {
-        return "a" + "b" + "c";
-    }
-
-    console.log(concat())
-</script>
-
-<!--taking in and returning string in uppercase-->
-<script>
-    function upperCase() {
-        var str = "Hello World";
-        return str.toUpperCase();
-    }
-
-    console.log(upperCase())
-</script>
-
-<!--david's solution to function above-->
-<script>
-    function upperCase(str) {
-        return str.toUpperCase();
-
-    }
-
-    console.log(upperCase("pizza time"))
-</script>
-<!--area with diameter given-->
-<script>
-    function areaofCircWithDiameter() {
-        var diameter = prompt("Please enter the diameter: ");
-        var squared = diameter * diameter;
-        return (1 / 4) * Math.PI * squared
-
-
-    }
-
-    console.log(areaofCircWithDiameter())
-</script>
-<!--david's solution below-->
-<script>
-    function areaCircDia(d) {
-        var radius = d / 2;
-        return Math.PI * Math.pow(radius, 2);
-    }
-
-    console.log(areaCircDia(5));
-</script>
-
-<!--perimeter of quadrilateral-->
-<script>
-    function perimeterOfQuad(a, b, c, d) {
-        return a + b + c + d;
-    }
-
-    console.log(perimeterOfQuad(1, 2, 3, 4))
-</script>
-
-<script>
-    function checkType(x) {
-        return typeof x;
-    }
-
-    console.log(checkType(3))
-</script>
-
-<!--a javascript function that returns true only when passed a positive, even number-->
-<script>
-    function posNumAndEven(num) {
-        return num % 2 === 0 && num > 0;
-
-    }
-
-    console.log(posNumAndEven(4));
-    console.log(posNumAndEven(7));
-    console.log(posNumAndEven(-4));
-    console.log(posNumAndEven(0));
-</script>
-<!--js func that prompts user for a number and returns true if greater than 5-->
-<script>
-    /*  function greaterThanFive(){
-          var num = parseInt(prompt("Please input a number: "));
-          if (num > 5){
-              return true;
-          } else{
-              return false;
-          }
-      }
-      console.log(greaterThanFive())*/
-
-    function greaterThanFive() {
-        var num = parseInt(prompt("Please input a number: "));
-        return num > 5;
-    }
-
-    console.log(greaterThanFive())
-</script>
-
-<script>
-    function helloStranger() {
-        var stranger = prompt("What is your name?");
-        return alert("Hello there, " + stranger);
-    }
-
-    console.log(helloStranger())
-</script>
-<!--david's solution-->
-<!--Write a JS Function returns the message, "Hello there, stranger."
-Alert the return from this function. Refacter so that it returns "Hello there, "
-concatenated to an argument. Prompt the user to input a string, call the function,
-and alert the return. Refactor so that the function has 'stranger' as a default value
-for the parameter-->
-<script>
-
-    function helloThere(string = "stranger") {
-        return 'Hello there, ' + string + '.';
-    }
-
-    var promptedResponse = prompt('Input string, plox.');
-    alert(helloThere(promptedResponse));
-</script>
-<script>
-    function lengthOfArray(array) {
-        return array.length;
-    }
-
-    console.log(lengthOfArray([1, 2, 3, 4, 5]));
-    console.log(lengthOfArray([1, 2, 3, 4, 5, 6]));
-</script>
-<script>
-    function takesAnArrayFive(arrayInput) {
-        /*    console.log(arrayInput);*/
-        console.log(arrayInput[0]);
-        console.log(arrayInput[1]);
-        console.log(arrayInput[2]);
-        console.log(arrayInput[3]);
-        console.log(arrayInput[4]);
-
-    }
-
-    function returnQuotient(num1, num2) {
-        if (typeof num1 === 'number' && typeof num2 === 'number') {
-            return num1 / num2;
-        } else {
-            return false;
-        }
-    }
-
-    console.log(returnQuotient(2, 4));
-    console.log(returnQuotient(6, "3"));
-    console.log(returnQuotient("12", 8));
-    console.log(returnQuotient("11, 8"));
-    console.log(takesAnArrayFive(["Nico", "Adri", "Nick", "Rain", "Gloria"]));
-
-
-</script>
-<script>
-    function takesAnArrayFive() {
-        console.log(["Nico", "Adri", "Nick", "Rain", "Gloria"]);
-
-    }
-
-    console.log(takesAnArrayFive());
-
-</script>
-<script>
-    function eightCharacter(input) {
-        if (typeof input === 'string' && input.length >= 8) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    console.log(eightCharacter('Nicola'));
-    console.log(eightCharacter('Yabbadabbadoo'));
-    console.log(eightCharacter("Eightyie"));
-
-</script>
-<script>
-    function roundDownFloatNum(num) {
-        if (typeof num === "number" && !isNaN(num)) {
-            return Math.round(Math.floor(num));
-        } else {
-            return false;
-        }
-    }
-
-    console.log(roundDownFloatNum(6.2));
-    console.log(roundDownFloatNum("7.5"));
-    console.log(roundDownFloatNum(6.5));
-    console.log(roundDownFloatNum("eggs"));
-</script>
-<script>
-    //if argument is 10 the function should log numbers 1 - 10
-    function count(num) {
-        var s = "";
-        for (var i = 0; num >= i; i++) {
-            s += i + 1;
-            if (i < (num)) {
-                s += ', ';
-            }
-        }
-        return s;
-    }
-
-    console.log(count(7));
-    console.log(count(9));
-</script>
-<!--sophies-->
-<script>
-    function countUp(x) {
-        for (var i = 1; x >= i; i++) {
-            console.log(i);
-        }
-        return "Done counting!";
-    }
-
-    console.log(countUp(8));
-</script>
-<script>
-    // function createPersonObject(nameStr, ageNum){
-    //     var personObj = {};
-    //     personObj.nameStr = nameStr;
-    //     personObj.ageNum = ageNum;
-    //
-    //     return personObj;
-    // }
-    // or
-    // function createPersonObject(name, age){
-    //     return {
-    //         name: name,
-    //         age: age
-    //     }
-    // }
-    //
-    // console.log(createPersonObject("Hannah", 47));
-
-
-</script>
-<script>
-    function fizzBuzz() {
-        for (var i = 1; i <= 100; i++) {
-            if (i % 15 === 0) {
-                console.log('FizzBuzz');
-            } else if (i % 3 === 0) {
-                console.log('Fizz');
-            } else if (i % 5 === 0) {
-                console.log('Buzz');
-            } else {
-                console.log(i);
-            }
-        }
-    }
-
-    console.log(fizzBuzz());
-    //
-    // for(i=1; i<=20;i++){
-    //     console.log(((i%3) ? (i%5) ?i:'Buzz':(i%5)?'Fizz':'FizzBuzz'));
-    // )};
-</script>
-<script>
-    function stringFive(num) {
-        if (num === 'five') {
-            return 5;
-        }
-    }
-
-    console.log(stringFive("five"));
-</script>
-<script>
-    var band = new Object();
-    band.shred = function () {
-        console.log('RAAAAAAAAAA!!!!');
-    };
-
-</script>
-<script>
-    var shoppingCarts = [
-        {
-            apples: 8,
-            bananas: 2,
-            oranges: 4,
-            grapes: 24
-        }, {
-            apples: 3,
-            bananas: 6,
-            oranges: 8,
-            grapes: 12
-        }, {
-            apples: 0,
-            bananas: 12,
-            oranges: 0,
-            grapes: 0
-        }, {
-            apples: 4,
-            bananas: 0,
-            oranges: 12,
-            grapes: 10
-        }
-    ];
-
-    function mostOranges(carts) {
-        var solution = [];
-        var winner = carts[0];
-        var winningI = -1;
-        carts.forEach(function (cart, index) {
-            if (cart.oranges > winner.oranges) {
-                winner = cart;
-                winningI = index;
-            }
-        });
-        solution.push(winner, winningI);
-        return winner;
-    }
-
-    console.log(mostOranges(shoppingCarts));
-</script>
-<script>
-    var students = [
-        {
-            name: "Mary",
-            grade: 10,
-            gpa: 3.7,
-            isRegistered: true
-        },
-        {
-            name: "Tim",
-            grade: 12,
-            gpa: 3.2,
-            isRegistered: false
-        },
-        {
-            name: "Ellie",
-            grade: 9,
-            gpa: 4.0,
-            isRegistered: false
-        },
-        {
-            name: "Alex",
-            grade: 10,
-            gpa: 3.9,
-            isRegistered: true
-        }
-    ];
-
-    function notRegistered(arr) {
-        var newArr = [];
-        arr.forEach(function (student) {
-            if (student.isRegistered === false) {
-                newArr.push(student)
-            }
-        });
-        return newArr;
-
-    }
-
-    console.log(notRegistered(students));
-</script>
-<script>
-    var hamsters = [
-        {
-            name: "Hamtaro",
-            heightInMM: 86,
-            fur: ['orange', 'white'],
-            gender: "male",
-            dateOfBirth: "August 6"
-        }, {
-            name: "Bijou",
-            heightInMM: 75,
-            fur: ['white'],
-            gender: "female",
-            dateOfBirth: "July 10"
-        }, {
-            name: "Oxnard",
-            heightInMM: 100,
-            fur: ['grey', 'white'],
-            gender: "male",
-            dateOfBirth: "May 3"
-        }, {
-            name: "Boss",
-            heightInMM: 120,
-            fur: ['brown', 'white'],
-            gender: "male",
-            dateOfBirth: "Spetember 21"
-        }, {
-            name: "Snoozer",
-            heightInMM: 85,
-            fur: ['brown', 'white', "pink"],
-            gender: "male",
-            dateOfBirth: "January 14"
-        }
-    ];
-
-    function hamsterObj(arr) {
-
-        return arr.sort(function (a, b) {
-            return a.heightInMM - b.heightInMM
-        });
-
-
-    }
-
-    console.log(hamsterObj(hamsters))
-</script>
-
-<ul>
-    <li>NBA.tv: <p>I watch basketball alot</p></li>
-
-    <li>Bulpapedia: <p>I like pokemon alot for information on pokemon stats for competitive play</p></li>
-
-    <li>Crunchyroll <p>I watch anime alot</p></li>
-</ul>
-
-
-</body>
-<script>
-
-    function takeInNumsTurnToString(num){
-        var a = ['', 'one', 'two', 'three', 'four', 'five', 'six','seven', 'eight', 'nine', 'ten'];
-        if (num <= 10){
-            return a[num];
-        }else {
-            return false;
-        }
-    }
-
-    console.log(takeInNumsTurnToString(5));
-
-    /*david's way*/
-    function numAsWord(num) {
-        switch (num) {
-            case 1:
-                return 'one';
-            case 2:
-                return 'two';
-            case 3:
-                return 'three';
-            case 4:
-                return 'four';
-            case 5:
-                return 'five';
-            case 6:
-                return 'six';
-            case 7:
-                return 'seven';
-            case 8:
-                return 'eight';
-            case 9:
-                return 'nine';
-            case 10:
-                return 'ten';
-            default:
-                return false;
-        }
-    }
-    var randomNum = Math.floor(Math.random() * 10) + 1;
-    console.log(numAsWord(randomNum));
-</script>
-<script>
-    var newObj = {
-        gratitude: "You're Welcome"
-    };
-    function yaWelcome(gratitude){
-        if (gratitude === "Thank You"){
-            return newObj.gratitude;
-
-        } else{
-           return "Hell naw"
-        }
-    }
-
-    console.log(yaWelcome("Thank You"));
-    console.log(yaWelcome("mane hail naw"))
-</script>
-<script>
-    function randBool(num){
-        return Boolean(Math.floor(Math.random() * 2));
-    }
-    console.log(randBool());
-
-</script>
-<script>
-    // function evenArr(a){
-    //     let newArr= [];
-    //     a.forEach(function(num){
-    //         if(num%2 === 0){
-    //             newArr.push(num);
+    // const myPromise = num => {
+    //     return new Promise((resolve, reject) => {
+    //         if (num % 2 === 0) {
+    //             resolve(`Yea, the number is ${num}`);
+    //         } else {
+    //             reject(`sorry ${num} ain't even`);
     //         }
-    //
     //     });
-    //     return newArr;
-    // }
-    //
-    // console.log(evenArr([1, 2, 3, 4, 5, 6, 7, 8]));
-/*ES6 Below*/
-    // const evenArr = function(a){
-    //     let newArr =[];
-    //     a.forEach(num => {
-    //         if(num % 2 === 0) newArr.push(num);
-    //     });
-    //
-    //     return newArr;
     // };
-    // console.log(evenArr([1, 2, 3, 4, 5, 6, 7, 8]));
-/*ES6 below using for of loop*/
-    const evenArr = function(numbers){
-        let newArr = [];
-        for(num of numbers){
-            if(num % 2 === 0) newArr.push(num);
-        }
-        return newArr;
+
+    // myPromise(4)
+    //     .then(message => console.log(message));
+    // myPromise(9)
+    //     .catch(message => console.log(message));
+
+    //
+    // const evenPromise = num => {
+    //     return new Promise((resolve, reject) => {
+    //         num % 2 === 0 ? resolve(`Yea, the number is ${num}`) : reject(`sorry ${num} ain't even`);
+    //     })
+    // };
+    //
+    // evenPromise(5)
+    //     .then(message => console.log(message))
+    //     .catch(message => console.log(message))
+
+    const helloPromise = () => {
+        return new Promise((resolve, reject) => {
+         resolve("Hello")
+        })
     };
-    console.log(evenArr([1, 2, 3, 4, 5, 6, 7, 8]))
-</script>
-<script>
 
-const myPromise = num => {
-    return new Promise((resolve, reject) => {
-        if (num % 2 === 0) {
-            resolve(`Yea, the number is ${num}`);
-        } else {
-            reject(`sorry ${num} ain't even`);
-        }
-    });
-};
-
-myPromise(4)
-    .then(message => console.log(message));
-myPromise(9)
-    .catch(message => console.log(message));
+   helloPromise().then(message => {
+      document.getElementsByTagName('body')[0].innerHTML += `<h1>${message}</h1>`;
+   });
 
 </script>
+</body>
 </html>
